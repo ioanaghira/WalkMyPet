@@ -1,4 +1,4 @@
-package quiz_problem;
+package example;
 
 public class Circle extends Shape {
 
