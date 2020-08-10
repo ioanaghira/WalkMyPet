@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e7853030-f4ca-434f-b568-b0a830c5ec0d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/WalkingOrder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/templates" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/WalkMyPet.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/WalkMyPetApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/WalkMyPetApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Feedback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Pet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/ProfileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/ProfileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/test/java/proiect_final/WalkMyPet/WalkMyPetApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/test/java/proiect_final/WalkMyPet/WalkMyPetApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1d8kZeypiZb5GsuTMIGyiXoFqMU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="proiect_final.WalkMyPet.dto" />
+      <recent name="proiect_final.WalkMyPet.transformer" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\benyi\Desktop\github\WalkMyPet\WalkMyPet\WalkMyPet\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="WalkMyPetApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="proiect_final.WalkMyPet.WalkMyPetApplication" />
+      <module name="WalkMyPet" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="proiect_final.WalkMyPet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.WalkMyPetApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e7853030-f4ca-434f-b568-b0a830c5ec0d" name="Default Changelist" comment="" />
+      <created>1591814164119</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591814164119</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser" timestamp="1594925609808">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="488" y="84" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1594925609808" />
+    <state x="432" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592332663260">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="432" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.738@0.0.1366.738" timestamp="1592332663260" />
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1595353899160">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1595353899160" />
+    <state width="1323" height="208" key="GridCell.Tab.0.bottom" timestamp="1595449510246">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="208" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1595449510246" />
+    <state width="1323" height="208" key="GridCell.Tab.0.center" timestamp="1595449510246">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="208" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1595449510246" />
+    <state width="1323" height="208" key="GridCell.Tab.0.left" timestamp="1595449510246">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="208" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1595449510246" />
+    <state width="1323" height="208" key="GridCell.Tab.0.right" timestamp="1595449510246">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="208" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1595449510246" />
+    <state width="1323" height="218" key="GridCell.Tab.1.bottom" timestamp="1595355898670">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="218" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1595355898670" />
+    <state width="1323" height="218" key="GridCell.Tab.1.center" timestamp="1595355898670">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="218" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1595355898670" />
+    <state width="1323" height="218" key="GridCell.Tab.1.left" timestamp="1595355898670">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="218" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1595355898670" />
+    <state width="1323" height="218" key="GridCell.Tab.1.right" timestamp="1595355898670">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1323" height="218" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1595355898670" />
+    <state x="263" y="103" key="IDE.errors.dialog" timestamp="1597076521220">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="263" y="103" key="IDE.errors.dialog/0.0.1366.738@0.0.1366.738" timestamp="1597076521220" />
+    <state x="213" y="23" key="Maven.ArtifactSearchDialog" timestamp="1595007103183">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="213" y="23" key="Maven.ArtifactSearchDialog/0.0.1366.738@0.0.1366.738" timestamp="1595007103183" />
+    <state x="184" y="0" key="SettingsEditor" timestamp="1597076625058">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1597076625058" />
+    <state x="446" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594928796839">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="446" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.738@0.0.1366.738" timestamp="1594928796839" />
+    <state x="339" y="165" key="run.anything.popup" timestamp="1594751589084">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1594751589084" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1594754733078">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1594754733078" />
+  </component>
+</project>
