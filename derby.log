@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sat Jun 20 19:41:57 BST 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0172-d309-8978-000001cd4700 
+on database directory memory:C:\Users\benyi\Desktop\github\WalkMyPet\07027a7e-6f0c-4d83-919d-437b082391fe with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2626b418 
+Loaded from file:/C:/Users/benyi/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=13.0.1+9
+user.dir=C:\Users\benyi\Desktop\github\WalkMyPet
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
