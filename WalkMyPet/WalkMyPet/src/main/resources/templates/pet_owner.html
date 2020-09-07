@@ -1,0 +1,40 @@
+
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+<h1>Hello!</h1>
+<p>Welcome to Your Page</p>
+<P>You are logged in as a PET OWNER</P>
+<div>
+    <table>
+        <td>
+            <form action="#" th:action="@{/pet_owner/addWalkingOrder/} + ${id}" method="get">
+                <input type="submit" value="Create Order"/>
+            </form>
+        </td>
+        <td>
+            <form action="#" th:action="@{/pet_owner/walkingOrders/} + ${id}" method="get">
+                <input type="submit" value="View Your Orders"/>
+            </form>
+        </td>
+        <td>
+            <form action="#" th:action="@{/pet_owner/{id}/viewAllWalkingOrders(id=${id})}" method="get">
+                <input type="submit" value="View All Orders"/>
+            </form>
+        </td>
+        <td>
+            <form action="#" th:action="@{/pet_owner/edit/} + ${id}" method="get">
+                <input type="submit" value="Edit your Profile"/>
+            </form>
+        </td>
+        <td>
+            <a href="/logout">Sign Out</a>
+        </td>
+    </table>
+
+</div>
+</body>
+</html>
