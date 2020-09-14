@@ -15,8 +15,10 @@
     <input type="button" value="Sign up"/>
 </a>
 
-<p><a href="/feedback">
-    <input type="button" value="View Feedback"/>
+<p><a href>
+    <form action="#" th:action="@{/feedbacks}" method="get">
+        <input type="submit" value="User Reviews"/>
+    </form>
 </a>
 </body>
 </html>

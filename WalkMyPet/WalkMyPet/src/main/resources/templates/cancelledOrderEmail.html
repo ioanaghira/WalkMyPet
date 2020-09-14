@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <title>Email template for create order</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <style type="text/css">
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 48px;
+        }
+
+    </style>
+</head>
+<body>
+<p>HI!</p>
+
+<p th:text="${'Order '+ orderNr + ' has been cancelled!'}"></p>
+
+<p>
+    To view the order details, please logging in to our <a href="http://localhost:8083/">WEBSITE</a>!
+</p>
+
+<p>
+    Regards,
+    WalkMyPet
+</p>
+<br/>
+<span th:text="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}"></span>
+<p th:text="${location}"></p>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> Register </title>
+    <style>
+        html, body{
+            height:100%;
+            }
+        body{
+            margin: 0;
+            }
+        table {
+            border-collapse: collapse;
+            table-layout:fixed;
+            width:100%
+            }
+        .table1 {
+            font-weight: bold;
+            }
+        .table2 {
+            font: italic;
+            color: red;
+            }
+        .table1 tr td:nth-child(1){
+            width: 15%;
+            text-align:left;
+            }
+        .table1 tr td:nth-child(2){
+            width: 35%;
+            text-align:left;
+            }
+        .table1 tr td:nth-child(3){
+            width: 15%;
+            text-align:left;
+            }
+        .table1 tr td:nth-child(4){
+            width: 35%;
+            text-align:left;
+            }
+        .table2 tr td:nth-child(1){
+            width: 50%;
+            text-align:left;
+            }
+        .table2 tr td:nth-child(2){
+            width: 50%;
+            text-align:left;
+            }
+
+        th, td {
+            width:150px;
+            padding:6px;}
+
+        .div1 {
+            width:100%;
+            background-color: #2EA1AE;
+        }
+        .div2 {text-align: center; margin: auto; width: 80%;
+            border: 1px solid; padding: 10px;
+            background-color: lightblue;height:100px;
+            text-color: white;
+            }
+        .div3 {text-align: left; margin: auto; width: 80%;
+            border: 1px; padding: 10px; background-color: #E9F6F7;
+            }
+        .div4 {
+            color: darkblue;
+            weight: bold;
+            }
+        .div5 {
+            position:relative;
+            background-color: #98C9CE;
+            width:80%;
+            left: 10%;
+            font-weight: bold;
+
+            padding-top: 5px;
+            }
+        .div6 {
+            width: 100px;
+            position: relative;
+            left: 260px;
+            bottom: 5px;
+            }
+        .div7 {
+            width: 100px;
+            position: relative;
+            left: 200px;
+            bottom: 44px;
+            }
+        textarea {
+            border-color:blue; border:solid 1px;
+            background-color: #C3F6F6;
+            padding: 10px; resize: none;
+            }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            }
+        .navbar {
+            overflow: hidden;
+            background-color: #459AB3;
+            width: 100%;
+            }
+        .navbar a {
+            float: right;
+            height: 50px;
+            }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ACE2F3;
+            }
+
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: transparent;
+            border: none;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+        #savebtn, #cancelbtn{
+            background-color: #E9F6F7;
+            border: outset;
+            width: 120px;
+            padding: 6px 10px;
+            color: darkblue;
+            font-weight: bold;
+            font-size: medium;
+            }
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/login}"
+                      method="get">
+                    <input type="submit" value="Log In"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h2> Register </h2>
+        </div>
+    </div>
+    <div class="div3">
+        <div class="div5">
+            <form action="#" th:action="@{/register}"
+                  th:object="${profile}" method="post">
+                <table class="table1">
+                    <tr>
+                        <td><label>First Name</label></td>
+                        <td><input type="text" th:field="*{firstName}"></td>
+                        <td><label>Last Name</label></td>
+                        <td><input type="text" th:field="*{lastName}"></td>
+                    </tr>
+                </table>
+                <table class="table2">
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('firstName')}"
+                                  th:errors="*{firstName}">FName Error</span>
+                        </td>
+                        <td>
+                            <span th:if="${#fields.hasErrors('lastName')}"
+                                  th:errors="*{lastName}">LName Error</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table1">
+                    <tr>
+                        <td><label>Phone Number</label></td>
+                        <td><input type="text" th:field="*{phoneNumber}"></td>
+                        <td><label>Username/Email</label></td>
+                        <td><input type="email" th:field="*{email}"></td>
+                    <tr>
+                    </tr>
+                </table>
+                <table class="table2">
+                    <tr>
+                        <td>
+                        <span th:if="${#fields.hasErrors('phoneNumber')}"
+                              th:errors="*{phoneNumber}">PhoneNumber Error</span></td>
+                        <td>
+                            <span th:if="${#fields.hasErrors('email')}"
+                                  th:errors="*{email}">Email Error</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table1">
+                    <tr>
+                        <td><label>Password</label></td>
+                        <td><input type="password" th:field="*{password}"></td>
+                        <td></td>
+                        <td></td>
+                    <tr>
+                    </tr>
+                </table>
+                <table class="table2">
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('password')}"
+                                  th:errors="*{password}">Password Error</span>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+                <table class="table1">
+                    <tr>
+                        <td><label>Street number</label></td>
+                        <td><input type="text" th:field="*{address.streetNumber}"></td>
+                        <td><label>Street Name</label></td>
+                        <td><input type="text" th:field="*{address.street}"></td>
+                    </tr>
+                </table>
+                <table class="table2">
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('address.streetNumber')}"
+                                  th:errors="*{address.streetNumber}">StreetNo Error</span>
+                        </td>
+                        <td>
+                            <span th:if="${#fields.hasErrors('address.street')}"
+                                  th:errors="*{address.street}">StrName Error</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table1">
+                    <tr>
+                        <td><label>Zone</label></td>
+                        <td><input type="text" th:field="*{address.zone}"></td>
+                        <td><label>City</label></td>
+                        <td><input type="text" th:field="*{address.city}"></td>
+                    </tr>
+                </table>
+                <table class="table2">
+                    <tr>
+                        <td>
+                        <span th:if="${#fields.hasErrors('address.zone')}"
+                              th:errors="*{address.zone}">Zone Error</span>
+                        </td>
+                        <td>
+                        <span th:if="${#fields.hasErrors('address.city')}"
+                              th:errors="*{address.city}">City Error</span>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table1">
+                    <tr>
+                        <td><label>Postcode</label></td>
+                        <td><input type="text" th:field="*{address.postcode}"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+                <table class="table2">
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('address.postcode')}"
+                                  th:errors="*{address.postcode}">PostCode Error</span>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr height=15px></tr>
+                </table>
+
+                <table>
+                    <tr>Please select your profile type: pet owner or service provider):
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="profileType" th:field="*{profileType}">
+                                <option th:each="profileType : ${T(proiect_final.WalkMyPet.domain.ProfileType).values()}"
+                                        th:value="${profileType}"
+                                        th:text="${profileType}"></option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <table class="table2">
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('profileType')}"
+                                  th:errors="*{profileType}">ProfileType Error</span>
+                        </td>
+                    </tr>
+                </table>
+                <div class="div6">
+                    <input id="savebtn" type="submit" value="Register"/>
+                    <div class="div7">
+                        <form action="#" th:action="@{/}" method="get">
+                            <input id="cancelbtn" type="submit" value="Cancel"/>
+                        </form>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

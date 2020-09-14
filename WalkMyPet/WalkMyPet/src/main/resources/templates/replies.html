@@ -1,0 +1,174 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> View Reviews </title>
+    <style>
+    html, body{
+    height:100%;}
+    body{
+    margin: 0;}
+
+        .container1 {
+        border-color:blue; border:solid 1px;
+        background-color: #C3F6F6;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 16px;
+        height:120px;
+        font-size:15px;
+        position:absolute;
+        width: 70%;
+        right: 200px;
+        }
+        .div1 {
+        width:100%;
+        height:100%;
+        background-color:  #2EA1AE;
+        }
+        .div2 {text-align: center; margin: auto; width: 80%;
+        border: 1px solid; padding: 10px;
+        background-color: lightblue;height:100px;
+        text-color: white;
+        }
+        .div3 {text-align: left; height:500px; margin: auto; width: 80%;
+        border: 1px; padding: 10px; background-color: #FFFFFF;
+        }
+        .div4 {
+        color: darkblue;
+        weight: bold;
+        }
+        .div5 {
+        position: absolute;
+        top: 4px;
+        padding-left: 80px;
+        width: 250px;
+        }
+        .div6 {
+        top: 8px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        width: 190px;
+        height: 80px;
+        font-size: 15px;
+        border-style: outset;
+        }
+        .div7 {
+        position:relative;
+        width: 800px;
+        height: 100px;
+        left: 200px;
+        bottom: 95px;
+        font-size: 15px;
+        }
+        .div8 {
+        position:relative;
+        bottom:145px;
+        width: 150px;
+        padding-top: 40px;
+        left:5px;
+        }
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #459AB3;
+  width: 100%;
+}
+.navbar a {
+  float: right;
+  height: 50px;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #ACE2F3;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: transparent;
+  border: none;
+  color: darkblue;
+  padding: 10px 20px;
+  font-color: white;
+  font-weight: bold;
+  font-size: medium;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+.stars-outer::before {
+  content: "\2606 \2606 \2606 \2606 \2606";
+}
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+.stars-inner::before {
+  content: "\2605 \2605 \2605 \2605 \2605";
+  color: #f8ce0b;
+}
+
+
+
+
+    </style>
+</head>
+
+<body onload="myFunction();">
+
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/}"
+                      method="get">
+                    <input type="submit" value="Log In"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/profile/{profileId}/walkingOrder/{orderId}/feedbacks
+                    (orderId=${orderId}, profileId=${profileId})}"
+                      method="get">
+                    <input type="submit" value="Reviews"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h2> Replies </h2>
+        </div>
+    </div>
+
+
+    <div class="div3">
+        <div class = "container1" th:each="reply : ${replies}">
+            <table >
+                <tr>
+                    <td th:text="${reply.dateTime}" aria-readonly="true"><b>Reply Date</b></td>
+                </tr>
+                <tr>
+                    <td th:text="${reply.profile.firstName} + ' ' + ${reply.profile.lastName}" aria-readonly="true"><b>User Name</b></td>
+                </tr>
+                <tr aria-colspan="40px"></tr>
+                <tr>
+                    <td th:text="${reply.replyContent}" aria-readonly="true">Reply Content</td>
+                </tr>
+            </table>
+            <br/>
+            <br/>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
+

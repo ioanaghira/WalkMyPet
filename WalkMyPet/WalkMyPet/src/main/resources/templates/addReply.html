@@ -1,0 +1,276 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> Add Reply </title>
+
+    <style>
+    <style>
+        html, body{
+            height:100%;}
+        body{
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            }
+        .container {
+            border: 2px solid #ccc;
+            background-color: #EEF2F3;
+            border-radius: 5px;
+            padding: 16px;
+            margin: 16px;
+            height:150px;
+            }
+        .container::after {
+            content: "";
+            clear: both;
+            display: table;
+            }
+        .container span {
+            font-size: 15px;
+            margin-right: 15px;
+            }
+        .container p {
+            font-size: 15px;
+            margin-right: 15px;
+            margin-left: 10px
+            }
+        .monospace {
+            font-family: Lucida Console, Courier, monospace;
+            }
+        .div1 {
+            width:100%;
+            height:100%;
+            background-color: #2EA1AE;
+            }
+        .div2 {text-align: center; margin: auto; width: 80%;
+            border: 1px solid; padding: 10px;
+            background-color: lightblue;height:100px;
+            text-color: white;
+            }
+        .div3 {
+        position: relative;
+        right: 10px;
+        top: -7px;text-align: left; height:500px;width: 100%;
+            border: 1px; padding: 10px; background-color: #FFFFFF;
+            }
+        .div4 {
+            color: darkblue;
+            weight: bold;
+            }
+        .div5 {
+            position: relative;
+            padding-left: 20px;
+            bottom: 17px;
+            left: 30%;
+            width: 250px;
+            }
+        .div6 {
+            top: 8px;
+            padding-top: 1px;
+            padding-bottom: 1px;
+            width: 190px;
+            height: 80px;
+            font-size: 16px;
+            border-style: outset;
+            }
+        .div7 {
+            position:relative;
+            width: 800px;
+            height: 100px;
+            left: 200px;
+            bottom: 95px;
+            }
+        .div8 {
+            position:relative;
+            bottom:145px;
+            width: 150px;
+            padding-top: 40px;
+            left:5px;
+            }
+        #replyBox {
+            position:absolute;
+            bottom:110px;
+            left: 340px;
+            width: 700px;
+            height: 180px;
+            }
+        .div10 input[type=submit]{
+            position:relative;
+            bottom:0px;
+            width: 120px;
+            left:5px;
+            height:35;
+            background-color: #4D7EA4;
+            border-style: outset;
+            color: white;
+            font-size: 13px;
+            }
+        .div11 input[type=submit]{
+            position:relative;
+            bottom:59px;
+            width: 120px;
+            left:150px;
+            height:35;
+            background-color: #4D7EA4;
+            border-style: outset;
+            color: white;
+            font-size: 13px;
+            }
+        textarea {
+<!--        position:relative;-->
+            border-color:blue; border:solid 1px;
+            background-color: #C3F6F6;
+            padding: 10px; resize: none;
+            }
+        .navbar {
+            overflow: hidden;
+            background-color: #459AB3;
+            width: 100%;
+            }
+        .navbar a {
+            float: right;
+            height: 50px;
+            }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ACE2F3;
+            }
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: transparent;
+            border: none;
+            color: darkblue;
+            padding: 10px 20px;
+            font-color: white;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+        .stars-outer {
+            display: inline-block;
+            position: relative;
+            font-family: FontAwesome;
+            }
+        .stars-outer::before {
+            content: "\2606 \2606 \2606 \2606 \2606";
+            }
+        .stars-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            }
+        .stars-inner::before {
+            content: "\2605 \2605 \2605 \2605 \2605";
+            color: #f8ce0b;
+            }
+
+    </style>
+</head>
+
+<body onload="myFunction();">
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/logout}"
+                      method="get">
+                    <input type="submit" value="Log Out"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/provider}"
+                      method="get">
+                    <input type="submit" value="Your Page"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/profile/{profileId}/yourWalkingOrders(profileId=${profileId})}"
+                      method="get">
+                    <input type="submit" value="Your Orders"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/profile/{profileId}/walkingOrder/{orderId}/feedbacks
+                    (orderId=${orderId}, profileId=${profileId})}"
+                      method="get">
+                    <input type="submit" value="Reviews"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h2> Reply Customer Review </h2>
+        </div>
+
+
+        <div class="div3">
+            <div class="container" th:object="${feedback}">
+                <div class="stars-outer">
+                    <div class="stars-inner" id="inner">
+                        <script th:inline="javascript">
+                     function myFunction(){
+                        var star = 5;
+                        var rating = /*[[${feedback.rating}]]*/ "4";
+                        var starPercentage = (rating / star) * 100;
+                        document.getElementById("inner").style.width = starPercentage + "%";
+                        return true;
+                        }
+                        </script>
+                    </div>
+                    <div class="div5">
+                        <span th:text="${feedback.rating}"><b>Rating:</b></span>
+                    </div>
+                </div>
+                <div>
+                    <div class="div6">
+                        <p><span th:text="${feedback.dateTime}"><b>Feedback DateTime</b></span></p>
+                        <p><span
+                                th:text="${feedback.profile.firstName + ' ' + feedback.profile.lastName}"><b>User Name</b></span>
+                        </p>
+                    </div>
+                    <div class="div7">
+                        <p><b th:text="${feedback.content}">Your comments:</b></p>
+                    </div>
+                </div>
+            </div>
+            <!--        <form action="#" th:action="@{/profile/{profileId}/walkingOrder/{orderId}/feedBack/{fbId}/reply-->
+            <!--        (orderId=${orderId}, profileId=${profileId}, fbId =${fbId})}" th:object="${reply}" method="post">-->
+            <!--            <div>-->
+            <!--                <textarea rows="8" cols="90" name="replyContent" th:field="*{replyContent}"-->
+            <!--                          placeholder="Enter comments here..."></textarea>-->
+            <!--                <br/>-->
+            <!--                <span th:if="${#fields.hasErrors('replyContent')}"-->
+            <!--                      th:errors="*{replyContent}">Reply Content Errors</span>-->
+            <!--            </div>-->
+
+            <!--            <input id="savebtn" type="submit" value="Add Reply"/>-->
+            <!--        </form>-->
+
+            <div id="replyBox" class="div9">
+                <div class="div10">
+                    <form action="#" th:action="@{/profile/{profileId}/walkingOrder/{orderId}/feedBack/{fbId}/reply
+                            (orderId=${orderId}, profileId=${profileId}, fbId =${fbId})}" th:object="${reply}"
+                          method="post">
+                                    <textarea rows="6" cols="100" name="replyContent" th:field="*{replyContent}"
+                                              placeholder="Enter reply here..."></textarea>
+                        <span th:if="${#fields.hasErrors('replyContent')}"
+                              th:errors="*{replyContent}">Reply Content Errors</span>
+
+                        <div class="clearfix"></div>
+                        <input type="submit" class="submit clearfix" value="Save Reply"/>
+                    </form>
+                </div>
+                <div class="div11">
+                    <form action="#" th:action="@{/profile/{profileId}/walkingOrder/{orderId}/feedbacks
+                                (orderId=${orderId}, profileId=${profileId})}" method="get">
+                        <input type="submit" value="Cancel"/>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

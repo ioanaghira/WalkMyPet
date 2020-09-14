@@ -39,16 +39,18 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(email);
     }
 
+    @Override
+    public Optional<Profile> findById(int id) {
+        return userRepository.findById(id);
+    }
+
     public void update(int id, Profile user) {
 
         userRepository.save(user);
     }
 
 
-    public Profile findById(int id) {
-        Optional<Profile> result = userRepository.findById(id);
-        return result.get();
-    }
+
 
 
     @Override

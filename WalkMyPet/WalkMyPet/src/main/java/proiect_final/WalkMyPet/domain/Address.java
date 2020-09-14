@@ -54,10 +54,10 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Street: " + street + "\n" +
-                "StreetNumber: " + streetNumber + "\n" +
-                "Zone: " + zone + "\n" +
-                "City: " + city + "\n" +
-                "Postcode: " + postcode;
+        return "Str: " + street +
+                ", Nr: " + streetNumber +
+                ", Zone: " + zone +
+                ", City: " + city +
+                ", Postcode: " + postcode;
     }
 }

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
+import proiect_final.WalkMyPet.service.helper.customAnnotations.CompareTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,9 +14,9 @@ import java.time.LocalTime;
 import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.FutureOrPresent;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@CompareTime(message = "End time cannot be before Start time Or on another day!", start = "startTime", end = "endTime")
 @AllArgsConstructor
 @Getter
 @Setter
@@ -73,10 +74,13 @@ public class WalkingOrder {
         this.petOwner = new Profile(petOwnerFirstName, petOwnerLastName);
     }
 
-
-    public WalkingOrder(int petOwnerId) {
-        this.petOwner = new Profile(petOwnerId);
+    public WalkingOrder(int id){
+        this.id = id;
     }
+
+//    public WalkingOrder(int petOwnerId) {
+//        this.petOwner = new Profile(petOwnerId);
+//    }
 
 }
 

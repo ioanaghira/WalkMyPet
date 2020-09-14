@@ -1,0 +1,110 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title> Registered</title>
+    <style type="text/css">
+        html, body{
+            height:100%;
+            }
+        body{
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #459AB3;
+            width: 100%;
+            }
+        .navbar a {
+            float: right;
+            height: 50px;
+            }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ACE2F3;
+            }
+
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: transparent;
+            border: none;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+        .div1 {
+            width:100%;
+            background-color: #2EA1AE;
+        }
+        .div2 {text-align: center; margin: auto; width: 80%;
+            border: 1px solid; padding: 10px;
+            background-color: lightblue;height:100px;
+            text-color: white;
+            }
+        .div3 {text-align: left; margin: auto; width: 80%;
+            border: 1px; padding: 10px; background-color: #E9F6F7;
+            height:80%
+            }
+        .div4 {
+            color: darkblue;
+            weight: bold;
+            font-size:20px;
+            font-weight:bold;
+            }
+        .div5 {
+            position:relative;
+            background-color: #98C9CE;
+            width:80%;
+            height:90%;
+            left: 10%;
+            font-weight: bold;
+            padding: 5px;
+            text-align: center;
+            }
+        .div6 {
+            position:relative;
+            height: 346px;
+            width: 430px;
+            background-image: url("./dogwalk.png");
+            left:25%;
+            }
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/login}"
+                      method="get">
+                    <input type="submit" value="Log In"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <form th:object="${profile}">
+            <p>Hi <span th:text="*{firstName}">FName</span>, your WalkMyPet Account has been created!</p>
+            </form>
+        </div>
+    </div>
+
+    <div class="div3">
+        <div class="div5">
+            <h3>In order to access your account, please log in!</h3>
+            <br/>
+            <div class="div6">
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

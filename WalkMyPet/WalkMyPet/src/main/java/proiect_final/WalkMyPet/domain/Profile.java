@@ -1,20 +1,19 @@
 package proiect_final.WalkMyPet.domain;
 
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import proiect_final.WalkMyPet.service.helper.customAnnotations.EmailExists;
 
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 
+@EmailExists(message = "Email address exists! Register with another!", email = "email")
 @Getter
 @Setter
 @AllArgsConstructor
-
 @Entity
 @Table(name = "profile")
 public class Profile {
@@ -34,14 +33,15 @@ public class Profile {
 
     @Email
     @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "Enter a valid email address!")
-    @NotBlank(message = "Email address is mandatory!")
+    @EmailExists(message = "Email address exists! Register with another!", email = "email")
+    @NotBlank
     @Column(name = "email", nullable = false, unique = true, length = 50)
     private String email;
 
     @NotBlank
     @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$",
             message = "Password must be at least 8 char long, to have one Uppercase, one symbol, one number! ")
-    @Column(name = "password", nullable = false, unique = true, length = 50)
+    @Column(name = "password", nullable = false, length = 50)
     private String password;
 
     @NotBlank(message = "Please insert your Phone Number!")
@@ -56,16 +56,16 @@ public class Profile {
     @OneToMany(mappedBy = "petOwner", targetEntity = WalkingOrder.class, cascade = CascadeType.ALL)
     private List<WalkingOrder> walkingOrders;
 
+    @NotNull(message = "Please select your Profile type!")
     @Enumerated(EnumType.STRING)
     @Column(name="profile_type",length = 10)
     private ProfileType profileType;
 
+    @OneToMany(mappedBy = "profile", targetEntity = Feedback.class, cascade = CascadeType.ALL)
+    private List<Feedback> feedbacks;
 
-
-
-    @OneToMany(mappedBy = "petOwner", targetEntity = Pet.class, cascade = CascadeType.ALL)
-    private List<Pet> petList;
-
+    @OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, targetEntity = Reply.class)
+    private List<Reply> reply;
 
     public Profile(int id) {
         this.id = id;
@@ -82,6 +82,11 @@ public class Profile {
 
     public Profile() {
     }
+
+    public Profile(String email) {
+        this.email = email;
+    }
+
 
 
 
