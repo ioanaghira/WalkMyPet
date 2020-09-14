@@ -11,22 +11,19 @@
 <div>
     <table>
         <td>
-            <form action="#" th:action="@{/pet_owner/addWalkingOrder/} + ${id}" method="get">
+            <form action="#" th:action="@{/profile/{profileId}/addWalkingOrder(profileId=${profile.id})}"
+                   method="get">
                 <input type="submit" value="Create Order"/>
             </form>
         </td>
         <td>
-            <form action="#" th:action="@{/pet_owner/walkingOrders/} + ${id}" method="get">
+            <form action="#" th:action="@{/profile/{profileId}/yourWalkingOrders(profileId=${profile.id})}"
+                  method="get">
                 <input type="submit" value="View Your Orders"/>
             </form>
         </td>
         <td>
-            <form action="#" th:action="@{/pet_owner/{id}/viewAllWalkingOrders(id=${id})}" method="get">
-                <input type="submit" value="View All Orders"/>
-            </form>
-        </td>
-        <td>
-            <form action="#" th:action="@{/pet_owner/edit/} + ${id}" method="get">
+            <form action="#" th:action="@{/pet_owner/edit/{id}(id=${profile.id})}" method="get">
                 <input type="submit" value="Edit your Profile"/>
             </form>
         </td>

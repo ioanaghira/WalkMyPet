@@ -1,0 +1,147 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> Orders List </title>
+    <style>
+        html, body{
+            height:100%;
+            }
+        body{
+            margin: 0;
+            }
+        table {
+            border-collapse: collapse;
+            table-layout:fixed;
+            text-align: center;
+            padding-top: 20px;
+            }
+
+        th, td {
+            width:250px;
+            padding:12px;
+            border-bottom: 1px solid #ddd;
+            color: darkblue;
+            }
+        tr:hover {
+            background-color:#f5f5f5;
+            }
+        .div1 {
+            width:100%;
+            background-color: #2EA1AE;
+        }
+        .div2 {text-align: center; margin: auto; width: 98%;
+            border: 1px solid; padding: 10px;
+            background-color: lightblue;height:100px;
+            text-color: white;
+            }
+        .div3 {text-align: left; height:500px; margin: auto; width: 98%;
+            border: 1px; padding: 10px; background-color: #E9F6F7;
+            }
+        .div4 {
+            color: darkblue;
+            weight: bold;
+            }
+        .div5 {
+            position:relative;
+            background-color: #98C9CE;
+            width:80%;
+            left: 10%;
+            font-weight: bold;
+            text-align: center;
+            top: 50px;
+            }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            }
+        .navbar {
+            overflow: hidden;
+            background-color: #459AB3;
+            width: 100%;
+            }
+        .navbar a {
+            float: right;
+            height: 50px;
+            }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ACE2F3;
+            }
+
+        .navbar input[type=submit]{
+            background-color: transparent;
+            border: none;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+    </style>
+</head>
+
+<body onload ="enableEditBtn(); enableCancelBtn()">
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/logout}"
+                      method="get">
+                    <input type="submit" value="Log Out"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/provider}"
+                      method="get">
+                    <input type="submit" value="Your Page"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h2> Your Orders </h2>
+        </div>
+    </div>
+    <div class="div3">
+        <table>
+            <tr>
+                <th>Owner Name</th>
+                <th>Address</th>
+                <th>Order Date</th>
+                <th>Order Status</th>
+                <th>Order Cost</th>
+                <th>Order StartTime</th>
+                <th>Order EndTime</th>
+                <th>Observations</th>
+                <th>Cancel</th>
+                <th>View Reviews</th>
+            </tr>
+            <tr th:each="walkingOrder : ${walkingOrders}">
+                <td th:text="${walkingOrder.petOwner.firstName} + ' ' + ${walkingOrder.petOwner.lastName}">Owner Name</td>
+                <td th:text="${walkingOrder.petOwner.address}">Owner Address</td>
+                <td th:text="${walkingOrder.date}">Order Date</td>
+                <td th:text="${walkingOrder.orderStatus}">Order Status</td>
+                <td th:text="${walkingOrder.payment.paymentAmount}">Order Date</td>
+                <td th:text="${walkingOrder.startTime}">Order Start time</td>
+                <td th:text="${walkingOrder.endTime}">Order End Time</td>
+                <td th:text="${walkingOrder.observations}">Observations</td>
+                <td>
+                    <form action="#"
+                          th:action="@{/profile/{profileId}/cancelWalkingOrder/{id}(profileId=${profileId}, id = ${walkingOrder?.id})}"
+                          method="post">
+                        <button type="submit" id="cancelBtn"  value="Cancel">Cancel</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="#"
+                          th:action="@{/profile/{profileId}/walkingOrder/{orderId}/feedbacks(orderId=${walkingOrder?.id},
+                      profileId=${profileId})}"
+                          method="get">
+                        <button type="submit" id="reviewBtn" value="Review">Reviews</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

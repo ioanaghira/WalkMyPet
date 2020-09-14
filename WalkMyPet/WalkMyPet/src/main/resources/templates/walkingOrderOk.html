@@ -1,0 +1,150 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style>
+        html, body{
+            height:100%;
+            }
+        body{
+            margin: 0;
+            }
+        table {
+            border-collapse: collapse;
+            table-layout:fixed;
+            width:200px;
+            }
+        table tr td:nth-child(1){
+            text-align:right;
+            text-size: medium;
+            }
+
+        th, td {
+            width:250px;
+            padding:12px;
+            border-bottom: 1px solid #ddd;
+            color: darkblue;
+            }
+<!--        tr:hover {-->
+<!--            background-color:#f5f5f5;-->
+<!--            }-->
+        .div1 {
+            width:100%;
+            background-color: #2EA1AE;
+        }
+        .div2 {text-align: center; margin: auto; width: 80%;
+            border: 1px solid; padding: 10px;
+            background-color: lightblue;height:100px;
+            text-color: white;
+            }
+        .div3 {text-align: left; height:500px; margin: auto; width: 80%;
+            border: 1px; padding: 10px; background-color: #E9F6F7;
+            }
+        .div4 {
+            color: darkblue;
+            weight: bold;
+            }
+        .div5 {
+            position:relative;
+            background-color: #98C9CE;
+            width:60%;
+            left: 20%;
+            font-weight: bold;
+            text-align: center;
+            top: 50px;
+            }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            }
+        .navbar {
+            overflow: hidden;
+            background-color: #459AB3;
+            width: 100%;
+            }
+        .navbar a {
+            float: right;
+            height: 50px;
+            }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ACE2F3;
+            }
+
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: transparent;
+            border: none;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+
+    </style>
+</head>
+<body>
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/logout}"
+                      method="get">
+                    <input type="submit" value="Log Out"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/pet_owner}"
+                      method="get">
+                    <input type="submit" value="Your Page"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/profile/{profileId}/yourWalkingOrders(profileId=${profileId})}"
+                      method="get">
+                    <input type="submit" value="Your Orders"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h2> Your Order has been saved! </h2>
+        </div>
+    </div>
+    <div class="div3">
+        <div class="div5">
+            <table align="center">
+                <tr>
+                    <td><b><label>Order Date:</label></b></td>
+                    <td th:text="${walkingOrder.date}"></td>
+                </tr>
+                <tr>
+                    <td><b><label>Order Start Time:</label></b>
+                    <td th:text="${walkingOrder.startTime}"></td>
+                </tr>
+                <tr>
+                    <td><b><label>Order End Time:</label></b></td>
+                    <td th:text="${walkingOrder.endTime}"></td>
+                </tr>
+                <tr>
+                    <td><b><label>Walking Period:</label></b></td>
+                    <td th:text="${walkingOrder.period} + minutes"></td>
+                </tr>
+                <tr>
+                    <td><b><label>Order Status:</label></b></td>
+                    <td th:text="${walkingOrder.orderStatus}"></td>
+                </tr>
+                <tr>
+                    <td><b><label>Payment Amount:</label></b>
+                    <td th:text="${walkingOrder.payment} + RON"></td>
+                </tr>
+                <tr>
+                    <td><b><label>Observations:</label></b></td>
+                    <td th:text="${walkingOrder.observations}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

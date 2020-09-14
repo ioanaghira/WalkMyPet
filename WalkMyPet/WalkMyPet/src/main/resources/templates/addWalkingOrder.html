@@ -1,0 +1,206 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> Add WalkingOrder </title>
+    <style>
+        html, body{
+            height:100%;
+            }
+        body{
+            margin: 0;
+            }
+        table {
+            border-collapse: collapse;
+            }
+        th, td {
+            width:150px;
+            padding:6px;}
+
+        .div1 {
+            width:100%;
+            background-color: #2EA1AE;
+        }
+        .div2 {text-align: center; margin: auto; width: 80%;
+            border: 1px solid; padding: 10px;
+            background-color: lightblue;height:100px;
+            text-color: white;
+            }
+        .div3 {text-align: left; margin: auto; width: 80%;
+            border: 1px; padding: 10px; background-color: #E9F6F7;
+            }
+        .div4 {
+            color: darkblue;
+            weight: bold;
+            }
+        .div5 {
+            position:relative;
+            background-color: #98C9CE;
+            width:80%;
+            left: 10%;
+            font-weight: bold;
+            }
+        .div6 {
+            width: 100px;
+            position: relative;
+            left: 220px;
+            bottom: 5px;
+            }
+        .div7 {
+            width: 100px;
+            position: relative;
+            left: 200px;
+            bottom: 44px;
+            }
+        textarea {
+            border-color:blue; border:solid 1px;
+            background-color: #C3F6F6;
+            padding: 10px; resize: none;
+            }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            }
+        .navbar {
+            overflow: hidden;
+            background-color: #459AB3;
+            width: 100%;
+            }
+        .navbar a {
+            float: right;
+            height: 50px;
+            }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ACE2F3;
+            }
+
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: transparent;
+            border: none;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+        #saveBtn{
+            position: relative;
+            background-color: #E9F6F7;
+            border: outset;
+            width: 120px;
+            padding: 6px 10px;
+            color: darkblue;
+            font-weight: bold;
+            font-size: medium;
+            }
+        #cancelBtn{
+            position:relative;
+            left: 200px;
+            bottom: 21px;
+            background-color: #E9F6F7;
+            border: outset;
+            width: 120px;
+            padding: 6px 10px;
+            color: darkblue;
+            font-weight: bold;
+            font-size: medium;
+            }
+
+    </style>
+</head>
+
+<body>
+
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/logout}"
+                      method="get">
+                    <input type="submit" value="Log Out"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/pet_owner}"
+                      method="get">
+                    <input type="submit" value="Your Page"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/profile/{profileId}/yourWalkingOrders(profileId=${profileId})}"
+                      method="get">
+                    <input type="submit" value="Your Orders"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h2> Create Order </h2>
+        </div>
+    </div>
+    <div class="div3">
+        <div class="div5">
+            <table>
+                <form th:object="${profiles}">
+                    <tr>
+                        <td><b><label>Owner Name:</label></b></td>
+                        <td><input readonly type="text" th:field="*{firstName}">
+                            <input readonly type="text" th:field="*{lastName}"></td>
+                    </tr>
+                    <tr>
+                        <td><b><label>Owner Address:</label></b></td>
+                        <td><textarea rows="4" readonly cols="60" name="address" th:field="*{address}">
+                    </textarea><br></td>
+                    </tr>
+                </form>
+            </table>
+            <form action="#" th:action="@{/profile/{profileId}/addWalkingOrder(profileId=${profileId})}"
+                  th:object="${walkingOrder}" method="post">
+                <table>
+                    <tr>
+                        <td><b><label>Order Date:</label></b></td>
+                        <td><input type="date" th:field="*{date}"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date Error</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><label>Order Start Time:</label></b></td>
+                        <td><input type="time" name="startTime" th:field="*{startTime}"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}">STime Error</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><label>Order End Time:</label></b></td>
+                        <td><input type="time" name="endTime" th:field="*{endTime}"></td>
+                    <tr>
+                        <td>
+                            <span th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}">ETime Error</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b><label>Observations:</label></b></td>
+                        <td><textarea rows="4" cols="60" name="observations" th:field="*{observations}"
+                                      placeholder="Enter reply here...">
+                    </textarea><br></td>
+                    </tr>
+                </table>
+
+                <div class="div6">
+                    <input id="saveBtn" type="submit" value="Save">
+                </div>
+            </form>
+            <div class="div7">
+                <form action="#" th:action="@{/pet_owner}" method="get">
+                    <input id="cancelBtn" type="submit" value="Cancel">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

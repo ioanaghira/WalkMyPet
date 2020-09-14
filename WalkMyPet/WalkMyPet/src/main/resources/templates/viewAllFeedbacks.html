@@ -1,0 +1,262 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
+<head>
+    <title> View Reviews </title>
+    <script type="text/javascript">
+                function myFunction2() {
+                    var x = document.getElementById("replyBox");
+                    if (x.style.display === "none") {
+                    x.style.display = "block";
+                    } else {
+                    x.style.display = "none";
+                    }
+                }
+    </script>
+    <style>
+    <style>
+    html, body{
+    height:100%;}
+    body{
+    margin: 0;}
+        .container {
+        border: 2px solid #ccc;
+        background-color: #F4F4F4;
+        border-radius: 5px;
+        padding: 16px;
+        margin: 16px;
+        height:140px;
+        }
+        .container1 {
+        border-color:blue; border:solid 1px;
+        background-color: #C3F6F6;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 16px;
+        height:120px;
+        font-size:15px;
+        }
+
+        .container::after {
+        content: "";
+        clear: both;
+        display: table;
+        }
+
+        .container span {
+        font-size: 15px;
+        margin-right: 15px;
+        }
+        .container p {
+        font-size: 15px;
+        margin-right: 15px;
+        margin-left: 10px
+        }
+
+        .monospace {
+        font-family: Lucida Console, Courier, monospace;
+        }
+        h1 {
+        display: block;
+        font-size: 4em;
+        margin-top: 0.67em;
+        margin-bottom: 0.67em;
+        font-weight: bold;
+        color:#4B4F69;
+        text-align:center;
+        class:Courier;
+        }
+        .div1 {
+        width:100%;
+        height:100%;
+        background-color: #167575;
+        }
+        .div2 {text-align: center; margin: auto; width: 80%;
+        border: 1px solid; padding: 10px;
+        background-color: lightblue;height:100px;
+        text-color: white;
+        }
+        .div3 {text-align: left; height:500px; margin: auto; width: 80%;
+        border: 1px; padding: 10px; background-color: #FFFFFF;
+        }
+        .div4 {
+        color: darkblue;
+        weight: bold;
+        }
+        .div5 {
+        position: absolute;
+        top: 4px;
+        padding-left: 80px;
+        width: 250px;
+        }
+        .div6 {
+        top: 8px;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        width: 190px;
+        height: 80px;
+        font-size: 15px;
+        border-style: outset;
+        }
+        .div7 {
+        position:relative;
+        width: 800px;
+        height: 100px;
+        left: 200px;
+        bottom: 95px;
+        font-size: 15px;
+        }
+        .div8 {
+        position:relative;
+        bottom:145px;
+        width: 150px;
+        padding-top: 40px;
+        left:5px;
+        }
+        #replyBox {
+        position:absolute;
+        top:50px;
+        left: 150px;
+        width: 880px;
+        height: 180px;
+        }
+        .div10 input[type=submit]{
+ position:relative;
+        bottom:0px;
+        width: 120px;
+        left:5px;
+        height:35;
+        background-color: #4D7EA4;
+        border-style: outset;
+        color: white;
+        font-size: 13px;
+}
+.div11 input[type=submit]{
+ position:relative;
+        bottom:59px;
+        width: 120px;
+        left:150px;
+        height:35;
+        background-color: #4D7EA4;
+        border-style: outset;
+        color: white;
+        font-size: 13px;
+}
+
+        textarea {
+        border-color:blue; border:solid 1px;
+        background-color: #C3F6F6;
+        padding: 10px; resize: none;
+        }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #459AB3;
+  width: 100%;
+}
+.navbar a {
+  float: right;
+  height: 50px;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #ACE2F3;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: transparent;
+  border: none;
+  color: darkblue;
+  padding: 10px 20px;
+  font-color: white;
+  font-weight: bold;
+  font-size: medium;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+}
+.stars-outer::before {
+  content: "\2606 \2606 \2606 \2606 \2606";
+}
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+.stars-inner::before {
+  content: "\2605 \2605 \2605 \2605 \2605";
+  color: #f8ce0b;
+}
+
+
+
+    </style>
+</head>
+
+<body onload="myFunction();">
+
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/}"
+                      method="get">
+                    <input type="submit" value="Log In"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h2> Reviews </h2>
+        </div>
+    </div>
+
+    <div class="div3">
+        <div class="container" th:each="feedback : ${feedbacks}">
+            <div class="stars-outer">
+                <div class="stars-inner" id="inner">
+                    <script th:inline="javascript">
+                     function myFunction(){
+                        var star = 5;
+                        var rating = /*[[${feedback.rating}]]*/ "4";
+                        var starPercentage = (rating / star) * 100;
+                        document.getElementById("inner").style.width = starPercentage + "%";
+                        return true;
+                        }
+                    </script>
+                </div>
+                <div class="div5">
+                    <span th:text="${feedback.rating}"><b>Rating:</b></span>
+                </div>
+            </div>
+            <div>
+                <div class="div6">
+                    <p><span th:text="${feedback.dateTime}"><b>Feedback DateTime</b></span></p>
+                    <p><span th:text="${feedback.profile.firstName + ' ' + feedback.profile.lastName}">
+                        <b>User Name</b></span>
+                    </p>
+                </div>
+                <div class="div7">
+                    <p><b th:text="${feedback.content}">Your comments:</b></p>
+                </div>
+            </div>
+            <div class="div8">
+                <form action="#" th:action="@{/feedback/{fbId}/replies(fbId =${feedback?.id})}"
+                      th:object="${replies}" method="get">
+                    <button type="submit">View Replies</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
