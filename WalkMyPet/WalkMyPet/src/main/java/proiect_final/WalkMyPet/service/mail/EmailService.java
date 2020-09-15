@@ -103,6 +103,72 @@ public class EmailService {
     }
 
 
+
+    public void sendMailConfirmOrder(String subject, String to, int oId){
+
+        final Context ctx = new Context();
+        ctx.setVariable("orderNr", oId);
+        ctx.setVariable("location", "Cluj-Napoca");
+
+        try {
+            MimeMessage mimeMessage = this.emailSender.createMimeMessage();
+            MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "UTF-8");
+            message.setSubject(subject);
+            message.setFrom("walkmypet2020@gmail.com");
+            message.setTo(to);
+
+            String htmlContent = this.templateEngine.process("confirmOrderEmail", ctx);
+            message.setText(htmlContent, true);
+
+            // Send email
+            this.emailSender.send(mimeMessage);
+
+        }  catch (MailException | MessagingException exception) {
+            exception.getMessage();
+            exception.printStackTrace();
+        }
+
+    }
+
+    public void sendMailCompleteOrder(String subject, String to, String name, int oId,
+                                      String oDate, String start, String end,
+                                      String oStatus, Double oCost){
+
+        final Context ctx = new Context();
+        ctx.setVariable("name", name);
+        ctx.setVariable("orderNr", oId);
+        ctx.setVariable("orderDate", oDate);
+        ctx.setVariable("orderStart", start );
+        ctx.setVariable("orderEnd", end);
+        ctx.setVariable("orderStatus", oStatus);
+        ctx.setVariable("orderCost", oCost);
+        ctx.setVariable("location", "Cluj-Napoca");
+
+        try {
+            MimeMessage mimeMessage = this.emailSender.createMimeMessage();
+            MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "UTF-8");
+            message.setSubject(subject);
+            message.setFrom("walkmypet2020@gmail.com");
+            message.setTo(to);
+
+            String htmlContent = this.templateEngine.process("completeWalkingOrder", ctx);
+            message.setText(htmlContent, true);
+
+            // Send email
+            this.emailSender.send(mimeMessage);
+
+        }  catch (MailException | MessagingException exception) {
+            exception.getMessage();
+            exception.printStackTrace();
+        }
+
+    }
+
+
+
+
+
+
     public void sendMailOnFeedBack(String subject, String to, String titleName, String fbName, int woId,
                                    String content, String dateTime){
 

@@ -80,7 +80,7 @@
     </style>
 </head>
 
-<body onload ="enableEditBtn(); enableCancelBtn()">
+<body onload ="enableEditBtn(); enableCompleteBtn; enableCancelBtn()">
 <div class="div1">
     <div class="div2">
         <div class="navbar">
@@ -113,6 +113,7 @@
                 <th>Order EndTime</th>
                 <th>Observations</th>
                 <th>Cancel</th>
+                <th>Complete the order</th>
                 <th>View Reviews</th>
             </tr>
             <tr th:each="walkingOrder : ${walkingOrders}">
@@ -129,6 +130,13 @@
                           th:action="@{/profile/{profileId}/cancelWalkingOrder/{id}(profileId=${profileId}, id = ${walkingOrder?.id})}"
                           method="post">
                         <button type="submit" id="cancelBtn"  value="Cancel">Cancel</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="#"
+                          th:action="@{/profile/{profileId}/completeWalkingOrder/{id}(profileId=${profileId}, id = ${walkingOrder?.id})}"
+                          method="post">
+                        <button type="submit" id="completeBtn"  value="Complete">Complete</button>
                     </form>
                 </td>
                 <td>

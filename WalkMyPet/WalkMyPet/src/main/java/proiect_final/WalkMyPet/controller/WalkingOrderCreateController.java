@@ -184,7 +184,8 @@ public class WalkingOrderCreateController {
             modelAndView.addObject("walkingOrders",
                     walkingOrderCreateService.viewPetOwnerWalkingOrders(profileId));
             modelAndView.setViewName("walkingOrdersPetOwner");
-        } else if (!providerOrders.isEmpty() && profile.getId() == providerOrders.get(0).getProvider().getId()) {
+        }
+        else if (!providerOrders.isEmpty() && profile.getId() == providerOrders.get(0).getProvider().getId()) {
             modelAndView.addObject("walkingOrders",
                     walkingOrderCreateService.viewProviderWalkingOrders(profileId));
             modelAndView.setViewName("walkingOrdersProvider");
@@ -195,4 +196,89 @@ public class WalkingOrderCreateController {
 
     }
 
+    @RequestMapping(value = "/profile/{profileId}/confirmWalkingOrder/{id}", method = RequestMethod.POST)
+    public ModelAndView confirmWalkingOrder(WalkingOrder walkingOrder, @PathVariable("profileId") int profileId,
+                                            @PathVariable int id){
+        Profile profile = new Profile(profileId);
+        walkingOrderCreateService.confirmWalkingOrder(walkingOrder, OrderStatus.BOOKED, profile);
+        ModelAndView modelAndView = new ModelAndView();
+        walkingOrder.setProvider(profile);
+        List<WalkingOrder> ownerOrders = walkingOrderCreateService.viewPetOwnerWalkingOrders(profileId);
+        List<WalkingOrder> providerOrders = walkingOrderCreateService.viewProviderWalkingOrders(profileId);
+
+        WalkingOrder wo = walkingOrderCreateService.findById(id).get();
+        String email1 = wo.getPetOwner().getEmail();
+        String email2;
+        if (wo.getProvider() != null) {
+            email2 = wo.getProvider().getEmail();
+        } else {
+            email2 = "walkmypet2020@gmail.com";
+        }
+        emailService.sendMailConfirmOrder("Order Confirmed", email1, id);
+        emailService.sendMailConfirmOrder("Order Confirmed", email2, id);
+
+
+        if (!ownerOrders.isEmpty() && profile.getId() == ownerOrders.get(0).getPetOwner().getId()) {
+            modelAndView.addObject("walkingOrders",
+                    walkingOrderCreateService.viewPetOwnerWalkingOrders(profileId));
+            modelAndView.setViewName("walkingOrdersPetOwner");
+        }
+        else if (!providerOrders.isEmpty() && profile.getId() == providerOrders.get(0).getProvider().getId()) {
+            modelAndView.addObject("walkingOrders",
+                    walkingOrderCreateService.viewProviderWalkingOrders(profileId));
+            modelAndView.setViewName("walkingOrdersProvider");
+        } else {
+            modelAndView.setViewName("noWalkingOrder");
+        }
+        return modelAndView;
+    }
+
+
+    @RequestMapping(value = "/profile/{profileId}/completeWalkingOrder/{id}", method = RequestMethod.POST)
+    public ModelAndView completeWalkingOrder(WalkingOrder walkingOrder, @PathVariable("profileId") int profileId,
+                                             @PathVariable int id) {
+        walkingOrderCreateService.completeWalkingOrder(walkingOrder, OrderStatus.FINISHED);
+        ModelAndView modelAndView = new ModelAndView();
+        Profile profile = new Profile(profileId);
+        walkingOrder.setProvider(profile);
+        List<WalkingOrder> ownerOrders = walkingOrderCreateService.viewPetOwnerWalkingOrders(profileId);
+        List<WalkingOrder> providerOrders = walkingOrderCreateService.viewProviderWalkingOrders(profileId);
+
+        WalkingOrder wo = walkingOrderCreateService.findById(id).get();
+        String email1 = wo.getPetOwner().getEmail();
+        String email2;
+        if (wo.getProvider() != null) {
+            email2 = wo.getProvider().getEmail();
+        } else {
+            email2 = "walkmypet2020@gmail.com";
+        }
+
+        Optional<Profile> profile1 = profileARepository.findById(profileId);
+        String email = profile1.get().getEmail();
+        String name = profile1.get().getFirstName();
+        WalkingOrder wo1 = walkingOrderCreateRepository.findById(walkingOrder.getId()).get();
+        int id1 = walkingOrder.getId();
+        String date = wo.getDate().toString();
+        String start = wo.getStartTime().toString();
+        String end = wo.getEndTime().toString();
+        String status = wo.getOrderStatus().toString();
+        double cost = wo.getPayment().getPaymentAmount();
+        emailService.sendMailCompleteOrder("Order Created", email, name,
+                id, date, start, end, status, cost);
+        emailService.sendMailCompleteOrder("Order Created", email, name,
+                id, date, start, end, status, cost);
+
+        if (!ownerOrders.isEmpty() && profile.getId() == ownerOrders.get(0).getPetOwner().getId()) {
+            modelAndView.addObject("walkingOrders",
+                    walkingOrderCreateService.viewPetOwnerWalkingOrders(profileId));
+            modelAndView.setViewName("walkingOrdersPetOwner");
+        } else if (!providerOrders.isEmpty() && profile.getId() == providerOrders.get(0).getProvider().getId()) {
+            modelAndView.addObject("walkingOrders",
+                    walkingOrderCreateService.viewProviderWalkingOrders(profileId));
+            modelAndView.setViewName("walkingOrdersProvider");
+        } else {
+            modelAndView.setViewName("noWalkingOrder");
+        }
+        return modelAndView;
+    }
 }

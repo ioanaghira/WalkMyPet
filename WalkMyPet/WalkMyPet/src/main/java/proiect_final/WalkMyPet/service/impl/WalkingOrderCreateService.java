@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import proiect_final.WalkMyPet.domain.OrderStatus;
 import proiect_final.WalkMyPet.domain.Payment;
+import proiect_final.WalkMyPet.domain.Profile;
 import proiect_final.WalkMyPet.domain.WalkingOrder;
 import proiect_final.WalkMyPet.repository.WalkingOrderCreateRepository;
 import proiect_final.WalkMyPet.service.helper.Helper;
@@ -77,5 +78,13 @@ public class WalkingOrderCreateService {
 
     public void cancelWalkingOrder(WalkingOrder walkingOrder, OrderStatus status) {
         walkingOrderCreateRepository.cancelWalkingOrder(walkingOrder.getId(), status);
+    }
+
+    public void confirmWalkingOrder(WalkingOrder walkingOrder, OrderStatus status, Profile profile){
+        walkingOrderCreateRepository.confirmWalkingOrder(walkingOrder.getId(), status, profile);
+    }
+
+    public void completeWalkingOrder(WalkingOrder walkingOrder, OrderStatus status){
+        walkingOrderCreateRepository.completeWalkingOrder(walkingOrder.getId(), status);
     }
 }

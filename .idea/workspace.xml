@@ -4,83 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7853030-f4ca-434f-b568-b0a830c5ec0d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_jakarta_mail_1_6_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_thoughtworks_xstream_xstream_1_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_mail_2_3_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_2_6_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xmlpull_xmlpull_1_1_3_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xpp3_xpp3_min_1_1_4c.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/configuration/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/controller/FeedBackController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/controller/ProfileAController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/controller/ReplyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/controller/WalkingOrderCreateController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Reply.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/repository/FeedBackRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/repository/ProfileARepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/repository/ReplyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/repository/WalkingOrderCreateRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/helper/Helper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/helper/customAnnotations/CompareTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/helper/customAnnotations/EmailExists.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/helper/customAnnotations/EmailValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/helper/customAnnotations/EndStartTimeValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/FeedBackService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/ProfileAService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/ReplyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/WalkingOrderCreateService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/mail/EmailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/addFeedBack.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/addReply.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/addWalkingOrder.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/cancelledOrderEmail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/createFeedbackEmail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/createOrderEmail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/createRegisterEmail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/createReplyEmail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/dogwalk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/editWalkingOrder.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/feedbacks+replies.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/feedbacksPetOwner.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/feedbacksProvider.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/registered.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/replies.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/viewAllFeedbacks.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/viewOpenOrdersProvider.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/walkingOrderCanceled.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/walkingOrderOk.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/walkingOrdersPetOwner.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/walkingOrdersProvider.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/configuration/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/configuration/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/configuration/configuration" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/controller/controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Feedback.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Feedback.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/OrderStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/OrderStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Pet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/WalkingOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/domain/WalkingOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/repository/repository" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/impl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/edit_provider.html" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/edit_provider.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/pet_owner.html" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/pet_owner.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/provider.html" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/provider.html" afterDir="false" />
-    </list>
+    <list default="true" id="e7853030-f4ca-434f-b568-b0a830c5ec0d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +33,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.3\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2\plugins\maven\lib\maven3" />
       </MavenGeneralSettings>
     </option>
   </component>

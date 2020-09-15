@@ -123,9 +123,10 @@
                 <td th:text="${walkingOrder.startTime}">Order Start time</td>
                 <td th:text="${walkingOrder.endTime}">Order End Time</td>
                 <td th:text="${walkingOrder.observations}">Observations</td>
-
                 <td>
-                    <form action="#">
+                    <form action="#"
+                    th:action ="@{/profile/{profileId}/confirmWalkingOrder/{id}(profileId=${profileId}, id = ${walkingOrder?.id})}"
+                          method="post">
                         <button type="submit" id="confirmBtn" value="Confirm">Confirm</button>
                     </form>
                 </td>
