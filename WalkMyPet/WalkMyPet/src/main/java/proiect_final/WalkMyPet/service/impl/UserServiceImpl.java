@@ -49,6 +49,9 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    public Profile editProfile (Profile user){
+        return userRepository.save(user);
+    }
 
 
 

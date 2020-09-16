@@ -10,7 +10,7 @@
 <div>
     <h2> Edit your Profile </h2>
 
-    <form action="#" th:action="@{/provider/edit/{id}(id=${profile.id})}"
+    <form action="#" th:action="@{/pet_owner/edit/{id}(id=${profile.id})}"
           method="post" th:object="${profile}">
 
         <table>
@@ -72,7 +72,7 @@
     </form>
     <table>
         <td>
-            <form action="#" th:action="@{/provider}" method="get">
+            <form action="#" th:action="@{/pet_owner}" method="get">
                 <input type="submit" value="Go Back to Your Page"/>
             </form>
         </td>
