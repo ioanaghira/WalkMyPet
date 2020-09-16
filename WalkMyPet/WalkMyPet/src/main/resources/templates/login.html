@@ -6,7 +6,7 @@
 <head>
     <title>Login</title>
 </head>
-<body>
+<body style="background-color: powderblue;">
 <div layout:fragment="content" th:remove="tag">
 
     <div class="row">
@@ -21,6 +21,8 @@
                 <div th:if="${param.logout}">
                     <div class="alert alert-info">
                         You have been logged out.
+
+                        <p><a href="/">Return to homepage</a></p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -57,7 +59,7 @@
 
 
 
-<!--    <p><a href="/" th:href="@{/}">Back to home page</a></p>-->
+
 
 
 

@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7853030-f4ca-434f-b568-b0a830c5ec0d" name="Default Changelist" comment="" />
+    <list default="true" id="e7853030-f4ca-434f-b568-b0a830c5ec0d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/java/proiect_final/WalkMyPet/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/edit_provider.html" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/edit_provider.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/pet_owner.html" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/pet_owner.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/provider.html" beforeDir="false" afterPath="$PROJECT_DIR$/WalkMyPet/WalkMyPet/src/main/resources/templates/provider.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +21,9 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="WalkMyPet" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -69,11 +81,11 @@
       <recent name="proiect_final.WalkMyPet.domain" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ioana\Desktop\Github\java-gr-18\WalkMyPet\WalkMyPet\WalkMyPet\src\main\resources\templates" />
       <recent name="C:\Users\benyi\Desktop\github\WalkMyPet\WalkMyPet\WalkMyPet\src\main\resources\templates" />
       <recent name="C:\Users\benyi\Desktop\github\WalkMyPet\WalkMyPet\WalkMyPet\src\main\java\proiect_final\WalkMyPet\service\impl" />
       <recent name="C:\Users\benyi\Desktop\github\WalkMyPet\WalkMyPet\WalkMyPet\src\main\java\proiect_final\WalkMyPet\service\helper" />
       <recent name="C:\Users\benyi\Desktop\github\WalkMyPet\WalkMyPet\WalkMyPet\src\main\java\proiect_final\WalkMyPet\repository" />
-      <recent name="C:\Users\benyi\Desktop\github\WalkMyPet\WalkMyPet\WalkMyPet\src\main\java\proiect_final\WalkMyPet\controller" />
     </key>
   </component>
   <component name="RunManager" selected="Application.WalkMyPetApplication">
@@ -110,7 +122,19 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -166,10 +190,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599324367295" />
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1600025431054">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="651" y="-907" key="FileChooserDialogImpl" timestamp="1600257287057">
+      <screen x="0" y="-1080" width="1920" height="1040" />
     </state>
     <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1600025431054" />
+    <state x="651" y="-907" key="FileChooserDialogImpl/0.0.1536.824/0.-1080.1920.1040@0.-1080.1920.1040" timestamp="1600257287057" />
     <state x="521" y="137" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1598791606725" />
     <state width="1323" height="490" key="GridCell.Tab.0.bottom" timestamp="1600104904009">
       <screen x="0" y="0" width="1366" height="738" />
@@ -240,9 +265,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1599501552250" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1599485198986">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="581" y="-782" key="com.intellij.ide.util.TipDialog" timestamp="1600256675528">
+      <screen x="0" y="-1080" width="1920" height="1040" />
     </state>
+    <state x="581" y="-782" key="com.intellij.ide.util.TipDialog/0.0.1536.824/0.-1080.1920.1040@0.-1080.1920.1040" timestamp="1600256675528" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1599485198986" />
     <state x="446" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1594928796839">
       <screen x="0" y="0" width="1366" height="738" />
