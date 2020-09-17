@@ -18,7 +18,7 @@ public class ReplyService {
     @Autowired
     Helper helper;
 
-        public List<Reply> getAllReplies(int feedbackId) {
+    public List<Reply> getAllReplies(int feedbackId) {
         return replyRepository.findByFeedbackId(feedbackId);
     }
 

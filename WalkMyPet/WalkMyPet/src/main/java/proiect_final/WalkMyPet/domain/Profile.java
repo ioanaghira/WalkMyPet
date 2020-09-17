@@ -22,12 +22,12 @@ public class Profile {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name="first_name")
+    @Column(name = "first_name")
     @NotBlank(message = "Please insert your First Name!")
     private String firstName;
 
     @NotBlank(message = "Please insert your Last Name!")
-    @Column(name="last_name")
+    @Column(name = "last_name")
     private String lastName;
 
 
@@ -45,7 +45,7 @@ public class Profile {
     private String password;
 
     @NotBlank(message = "Please insert your Phone Number!")
-    @Column(name="phone_number")
+    @Column(name = "phone_number")
     private String phoneNumber;
 
 
@@ -58,7 +58,7 @@ public class Profile {
 
     @NotNull(message = "Please select your Profile type!")
     @Enumerated(EnumType.STRING)
-    @Column(name="profile_type",length = 10)
+    @Column(name = "profile_type", length = 10)
     private ProfileType profileType;
 
     @OneToMany(mappedBy = "profile", targetEntity = Feedback.class, cascade = CascadeType.ALL)
@@ -86,8 +86,6 @@ public class Profile {
     public Profile(String email) {
         this.email = email;
     }
-
-
 
 
 }

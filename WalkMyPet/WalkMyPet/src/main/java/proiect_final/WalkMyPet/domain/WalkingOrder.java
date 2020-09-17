@@ -35,16 +35,16 @@ public class WalkingOrder {
     private Profile provider;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="order_status",length = 12)
+    @Column(name = "order_status", length = 12)
     private OrderStatus orderStatus;
 
     @NotNull(message = "Please insert the order Start Time!")
-    @Column(name="start_time", nullable = false, unique = true)
+    @Column(name = "start_time", nullable = false)
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime startTime;
 
     @NotNull(message = "Please insert the order End Time!")
-    @Column(name = "end_time", nullable = false, unique = true)
+    @Column(name = "end_time", nullable = false)
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime endTime;
 
@@ -54,10 +54,10 @@ public class WalkingOrder {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
-    @Column(name ="observations")
+    @Column(name = "observations")
     private String observations;
 
-    @Column(name ="period")
+    @Column(name = "period")
     private double period;
 
     @OneToOne(targetEntity = Payment.class, cascade = {CascadeType.ALL})
@@ -74,7 +74,7 @@ public class WalkingOrder {
         this.petOwner = new Profile(petOwnerFirstName, petOwnerLastName);
     }
 
-    public WalkingOrder(int id){
+    public WalkingOrder(int id) {
         this.id = id;
     }
 

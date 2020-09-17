@@ -24,21 +24,18 @@ public class EndStartTimeValidator implements ConstraintValidator<CompareTime, O
     public boolean isValid(final Object value, final ConstraintValidatorContext context) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         boolean valid = true;
-        try
-        {
+        try {
             final String sTime = BeanUtils.getProperty(value, starTime);
             final String eTime = BeanUtils.getProperty(value, endTime);
             LocalTime start = LocalTime.parse(sTime, formatter);
             LocalTime end = LocalTime.parse(eTime, formatter);
 
-            valid =  start.isBefore(end) && !start.equals(end);
-        }
-        catch (final Exception ignore)
-        {
+            valid = start.isBefore(end) && !start.equals(end);
+        } catch (final Exception ignore) {
             // ignore
         }
 
-        if (!valid){
+        if (!valid) {
             context.buildConstraintViolationWithTemplate(message)
                     .addPropertyNode(endTime)
                     .addConstraintViolation()

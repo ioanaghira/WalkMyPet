@@ -3,12 +3,9 @@ package proiect_final.WalkMyPet.domain;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
-import proiect_final.WalkMyPet.service.helper.Helper;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @AllArgsConstructor
@@ -19,11 +16,11 @@ import java.util.List;
 public class Feedback {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "content")
-    @NotNull(message = "Please insert your feedback!")
+    @NotBlank(message = "Please insert your review!")
     private String content;
 
     @Column(name = "datetime")
@@ -38,12 +35,13 @@ public class Feedback {
     @ManyToOne(targetEntity = Profile.class)
     private Profile profile;
 
-    @Column(name="rating")
+    @Column(name = "rating")
     private int rating;
 
-    public Feedback(){}
+    public Feedback() {
+    }
 
-    public Feedback(int id){
+    public Feedback(int id) {
         this.id = id;
     }
 

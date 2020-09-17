@@ -104,6 +104,7 @@
     <div class="div3">
         <table>
             <tr>
+                <th>Order Number</th>
                 <th>Owner Name</th>
                 <th>Address</th>
                 <th>Order Date</th>
@@ -115,6 +116,7 @@
                 <th>Confirm</th>
             </tr>
             <tr th:each="walkingOrder : ${walkingOrders}">
+                <td th:text="${walkingOrder.id}">ID</td>
                 <td th:text="${walkingOrder.petOwner.firstName} + ' ' + ${walkingOrder.petOwner.lastName}">Owner Name</td>
                 <td th:text="${walkingOrder.petOwner.address}">Owner Address</td>
                 <td th:text="${walkingOrder.date}">Order Date</td>

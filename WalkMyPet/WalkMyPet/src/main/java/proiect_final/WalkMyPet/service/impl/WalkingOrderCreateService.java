@@ -67,7 +67,7 @@ public class WalkingOrderCreateService {
         walkingOrderCreateRepository.delete(walkingOrder);
     }
 
-    public List<WalkingOrder> viewOpenOrders(OrderStatus orderStatus){
+    public List<WalkingOrder> viewOpenOrders(OrderStatus orderStatus) {
         String status = "OPEN";
         List<WalkingOrder> walkingOrders = new ArrayList<>();
         walkingOrderCreateRepository.findByOrderStatus(OrderStatus.valueOf(status))
@@ -80,11 +80,11 @@ public class WalkingOrderCreateService {
         walkingOrderCreateRepository.cancelWalkingOrder(walkingOrder.getId(), status);
     }
 
-    public void confirmWalkingOrder(WalkingOrder walkingOrder, OrderStatus status, Profile profile){
+    public void confirmWalkingOrder(WalkingOrder walkingOrder, OrderStatus status, Profile profile) {
         walkingOrderCreateRepository.confirmWalkingOrder(walkingOrder.getId(), status, profile);
     }
 
-    public void completeWalkingOrder(WalkingOrder walkingOrder, OrderStatus status){
+    public void completeWalkingOrder(WalkingOrder walkingOrder, OrderStatus status) {
         walkingOrderCreateRepository.completeWalkingOrder(walkingOrder.getId(), status);
     }
 }

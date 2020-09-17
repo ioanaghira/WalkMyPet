@@ -45,8 +45,8 @@ public class ReplyController {
 
     @RequestMapping(value = "/profile/{profileId}/walkingOrder/{orderId}/feedBack/{fbId}/addReply", method = GET)
     public ModelAndView redirectToAddReply(@PathVariable("profileId") int profileId,
-                                              @PathVariable("orderId") int orderId,
-                                              @PathVariable("fbId") int fbId) {
+                                           @PathVariable("orderId") int orderId,
+                                           @PathVariable("fbId") int fbId) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("reply", new Reply());
         Feedback feedback = feedBackService.findById(fbId).get();
@@ -63,13 +63,15 @@ public class ReplyController {
     @RequestMapping(value = "/profile/{profileId}/walkingOrder/{orderId}/feedBack/{fbId}/reply",
             method = RequestMethod.POST)
     public ModelAndView saveReply(@PathVariable("profileId") int profileId,
-                                     @PathVariable("orderId") int orderId,
-                                     @PathVariable("fbId") int fbId,
-                                     @Valid Reply reply, BindingResult result) {
+                                  @PathVariable("orderId") int orderId,
+                                  @PathVariable("fbId") int fbId,
+                                  @Valid Reply reply, BindingResult result) {
         ModelAndView modelAndView = new ModelAndView();
+        Feedback feedback = feedBackService.findById(fbId).get();
 
         if (result.hasErrors()) {
             List<Feedback> feedbacks = feedBackService.getAllOrderFeedbacks(orderId);
+            modelAndView.addObject("feedback", feedback);
             modelAndView.addObject("feedbacks", feedbacks);
             Optional<Profile> profile = profileAService.findById(profileId);
             modelAndView.addObject("profile", profile);
@@ -78,32 +80,32 @@ public class ReplyController {
             reply.setProfile(new Profile(profileId));
             reply.setFeedback(new Feedback(fbId));
             replyService.saveReply(reply);
-
             Optional<Profile> profile = profileAService.findById(profileId);
-            if( profile.isPresent() ) {
+            if (profile.isPresent()) {
                 modelAndView.addObject("profile", profile.get());
+                modelAndView.addObject("feedback", feedback);
             }
 
             List<Feedback> feedbacks = feedBackService.getAllOrderFeedbacks(orderId);
-            if( !feedbacks.isEmpty()) {
+            if (!feedbacks.isEmpty()) {
                 modelAndView.addObject("feedbacks", feedbacks);
+                modelAndView.addObject("feedback", feedback);
             }
             WalkingOrder walkingOrder = walkingOrderCreateService.findById(orderId).get();
             modelAndView.addObject("replies", replyService.getAllReplies(fbId));
-            if(profile.get().getProfileType().toString() == "PROVIDER") {
+            if (profile.get().getProfileType().toString() == "PROVIDER") {
                 modelAndView.setViewName("feedbacksProvider");
             } else {
                 modelAndView.setViewName("feedbacksPetOwner");
             }
 
-            Feedback feedback = feedBackService.findById(fbId).get();
             Reply reply1 = replyRepository.findById(reply.getId()).get();
-            String titleName = helper.setRpEmailReceiverName(walkingOrder,reply1);
+            String titleName = helper.setRpEmailReceiverName(walkingOrder, reply1);
             String fbName = feedback.getProfile().getFirstName() + " " + feedback.getProfile().getLastName();
             String rpName = reply1.getProfile().getFirstName() + " " + reply1.getProfile().getLastName();
             String content = feedback.getContent();
             String rpContent = reply1.getReplyContent();
-            String email = helper.getRpReceiverEmailAddress(walkingOrder,reply1);
+            String email = helper.getRpReceiverEmailAddress(walkingOrder, reply1);
             String rpDateTime = reply1.getDateTime();
             String dateTime = feedback.getDateTime();
 
@@ -115,26 +117,29 @@ public class ReplyController {
 
     @RequestMapping(value = "/feedback/{fbId}/replies",
             method = RequestMethod.GET)
-    public ModelAndView viewReplies(@PathVariable("fbId") int fbId){
+    public ModelAndView viewReplies(@PathVariable("fbId") int fbId) {
         ModelAndView modelAndView = new ModelAndView();
         Feedback feedback = feedBackService.findById(fbId).get();
+        List<Reply> replies = replyService.getAllReplies(fbId);
         modelAndView.addObject("feedback", feedback);
-        modelAndView.addObject("replies", replyService.getAllReplies(fbId));
-        modelAndView.setViewName("feedbacks+replies");
+        modelAndView.addObject("replies", replies);
+        modelAndView.setViewName("repliesHomepage");
         return modelAndView;
     }
+
     @RequestMapping(value = "/profile/{profileId}/walkingOrder/{orderId}/feedback/{fbId}/repliesInside",
             method = RequestMethod.GET)
     public ModelAndView viewReplies2(@PathVariable("fbId") int fbId, @PathVariable("profileId") int profileId,
-                                     @PathVariable("orderId") int orderId){
+                                     @PathVariable("orderId") int orderId) {
         ModelAndView modelAndView = new ModelAndView();
         Profile profile = profileAService.findById(profileId).get();
         WalkingOrder walkingOrder = walkingOrderCreateService.findById(orderId).get();
         Feedback feedback = feedBackService.findById(fbId).get();
+        List<Reply> replies = replyService.getAllReplies(fbId);
         modelAndView.addObject("profile", profile);
         modelAndView.addObject("walkingOrder", walkingOrder);
         modelAndView.addObject("feedback", feedback);
-        modelAndView.addObject("replies", replyService.getAllReplies(fbId));
+        modelAndView.addObject("replies", replies);
         modelAndView.setViewName("replies");
         return modelAndView;
     }

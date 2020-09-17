@@ -28,7 +28,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private CustomLoginSuccessLoginConfig successHandler;
 
 
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 

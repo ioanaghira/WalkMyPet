@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @AllArgsConstructor
 @Setter
@@ -20,7 +21,7 @@ public class Reply {
     @Column(name = "datetime")
     private String dateTime;
 
-    //@NotNull(message = "Please add your reply before saving!")
+    @NotBlank(message = "Please add your reply before saving!")
     @Column(name = "reply_content")
     private String replyContent;
 
@@ -30,6 +31,7 @@ public class Reply {
     @ManyToOne(targetEntity = Profile.class)
     private Profile profile;
 
-    public Reply(){}
+    public Reply() {
+    }
 
 }

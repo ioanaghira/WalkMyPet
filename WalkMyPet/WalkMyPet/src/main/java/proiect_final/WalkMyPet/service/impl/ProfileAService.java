@@ -20,10 +20,10 @@ public class ProfileAService {
         profileARepository.save(profile);
     }
 
-    public List<Profile> getAllProfiles(){
+    public List<Profile> getAllProfiles() {
         List<Profile> profiles = new ArrayList<>();
         profileARepository.findAll()
-                .forEach(profiles :: add);
+                .forEach(profiles::add);
         return profiles;
     }
 

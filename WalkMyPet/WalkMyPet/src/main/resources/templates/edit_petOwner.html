@@ -1,85 +1,192 @@
-
 <html xmlns:th="http://www.w3.org/1999/xhtml" lang="">
 <head>
     <title> Edit Profile </title>
+    <style>
+        html, body{
+            height:100%;
+            }
+        body{
+            margin: 0;
+            }
+        table {
+            border-collapse: collapse;
+            }
+        th, td {
+            width:150px;
+            padding:6px;}
 
+        .div1 {
+            width:100%;
+            background-color: #2EA1AE;
+        }
+        .div2 {text-align: center; margin: auto; width: 80%;
+            border: 1px solid; padding: 10px;
+            background-color: lightblue;height:100px;
+            text-color: white;
+            }
+        .div3 {text-align: left; margin: auto; width: 80%; height:80%;
+            border: 1px; padding: 10px; background-color: #E9F6F7;
+            }
+        .div4 {
+            color: darkblue;
+            weight: bold;
+            }
+        .div5 {
+            position:relative;
+            background-color: #98C9CE;
+            width:60%;
+            left: 20%;
+            font-weight: bold;
+            }
+        .div6 {
+            width: 100px;
+            position: relative;
+            left: 220px;
+            bottom: 5px;
+            }
+        .div7 {
+            width: 100px;
+            position: relative;
+            left: 200px;
+            bottom: 44px;
+            }
+        textarea {
+            border-color:blue; border:solid 1px;
+            background-color: #C3F6F6;
+            padding: 10px; resize: none;
+            }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            }
+        .navbar {
+            overflow: hidden;
+            background-color: #459AB3;
+            width: 100%;
+            }
+        .navbar a {
+            float: right;
+            height: 50px;
+            }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ACE2F3;
+            }
+
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: transparent;
+            border: none;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+        #saveBtn{
+            background-color: #E9F6F7;
+            border: outset;
+            width: 120px;
+            padding: 6px 10px;
+            color: darkblue;
+            font-weight: bold;
+            font-size: medium;
+            }
+
+    </style>
 </head>
 
-<body style="background-color: powderblue;">
+<body>
 
-<div>
-    <h2> Edit your Profile </h2>
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/logout}"
+                      method="get">
+                    <input type="submit" value="Log Out"/>
+                </form>
+            </a>
+            <a href>
+                <form action="#" th:action="@{/pet_owner}"
+                      method="get">
+                    <input type="submit" value="Your Page"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h2> Edit Your Profile </h2>
+        </div>
+    </div>
 
-    <form action="#" th:action="@{/pet_owner/edit/{id}(id=${profile.id})}"
-          method="post" th:object="${profile}">
 
-        <table>
-            <tr>
-                <td><label>First Name</label></td>
-                <td><input type="text" th:field="*{firstName}"></td>
-            </tr>
-            <tr>
-                <td><label>Last Name</label></td>
-                <td><input type="text" th:field="*{lastName}"></td>
-            </tr>
-            <tr>
-                <td><input type="text" hidden readonly th:field="*{id}"></td>
-            </tr>
-            <tr>
-                <td><label>Phone Number</label></td>
-                <td><input type="text" th:field="*{phoneNumber}"></td>
-            </tr>
-            <tr>
-                <td><label>Enter your address details below:</label></td>
-            </tr>
-            <tr>
-                <td><label>Street number</label></td>
-                <td><input type="text"  th:field="*{address.streetNumber}"></td>
-            </tr>
-            <tr>
-                <td><label>Street Name</label></td>
-                <td><input type="text"  th:field="*{address.street}"></td>
-            </tr>
-            <tr>
-                <td><label>Zone</label></td>
-                <td><input type="text"  th:field="*{address.zone}"></td>
-            </tr>
-            <tr>
-                <td><label>City</label></td>
-                <td><input type="text"  th:field="*{address.city}"></td>
-            </tr>
-            <tr>
-                <td><label>Postcode</label></td>
-                <td><input type="text"  th:field="*{address.postcode}"></td>
-            </tr>
-            <tr>
-                <td><label>Password</label></td>
-                <td><input type="text"  th:field="*{password}"></td>
-            </tr>
-            <tr>
-                <td><label>Email</label></td>
-                <td><input type="email" readonly th:field="*{email}"></td>
-            </tr>
-            <tr>
-                <td><label>Profile Type</label></td>
-                <td><input type="text" readonly th:field="*{profileType}"></td>
-            </tr>
-            <tr>
-                <td><input type="text" hidden readonly th:field="*{address.id}"></td>
-            </tr>
-        </table>
-        <input type="submit" value="Save"/>
-    </form>
-    <table>
-        <td>
-            <form action="#" th:action="@{/pet_owner}" method="get">
-                <input type="submit" value="Go Back to Your Page"/>
+    <div class="div3">
+        <div class="div5">
+
+            <form action="#" th:action="@{/pet_owner/edit/{id}(id=${profile.id})}"
+                  method="post" th:object="${profile}">
+
+                <table>
+                    <tr>
+                        <td><label>First Name</label></td>
+                        <td><input type="text" th:field="*{firstName}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Last Name</label></td>
+                        <td><input type="text" th:field="*{lastName}"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" hidden readonly th:field="*{id}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Phone Number</label></td>
+                        <td><input type="text" th:field="*{phoneNumber}"></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <label>Enter your address details below:</label>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td><label>Street number</label></td>
+                        <td><input type="text" th:field="*{address.streetNumber}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Street Name</label></td>
+                        <td><input type="text" th:field="*{address.street}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Zone</label></td>
+                        <td><input type="text" th:field="*{address.zone}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>City</label></td>
+                        <td><input type="text" th:field="*{address.city}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Postcode</label></td>
+                        <td><input type="text" th:field="*{address.postcode}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Password</label></td>
+                        <td><input type="text" th:field="*{password}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Email</label></td>
+                        <td><input type="email" readonly th:field="*{email}"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Profile Type</label></td>
+                        <td><input type="text" readonly th:field="*{profileType}"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" hidden readonly th:field="*{address.id}"></td>
+                    </tr>
+                </table>
+                <input id="savebtn" type="submit" value="Save"/>
             </form>
-        </td>
-
-    </table>
+        </div>
+    </div>
 </div>
-
-
 </body>
 </html>
