@@ -19,23 +19,23 @@ public class Address {
     private int id;
 
     @NotBlank(message = "Please insert the Street Number!")
-    @Column(name ="street_number")
+    @Column(name = "street_number")
     private String streetNumber;
 
     @NotBlank(message = "Please insert the Street Name!")
-    @Column(name ="street")
+    @Column(name = "street")
     private String street;
 
     @NotBlank(message = "Please insert the Zone! If doesn't exist, please type 'NO ZONE'!")
-    @Column(name ="zone")
+    @Column(name = "zone")
     private String zone;
 
     @NotBlank(message = "Please insert the City Name!")
-    @Column(name ="city")
+    @Column(name = "city")
     private String city;
 
     @NotBlank(message = "Please insert the Post Code!")
-    @Column(name ="postcode")
+    @Column(name = "postcode")
     private String postcode;
 
     @OneToOne(mappedBy = "address", targetEntity = Profile.class)
@@ -54,10 +54,9 @@ public class Address {
 
     @Override
     public String toString() {
-        return "Str: " + street +
-                ", Nr: " + streetNumber +
-                ", Zone: " + zone +
-                ", City: " + city +
-                ", Postcode: " + postcode;
+        return street + " "
+                + streetNumber + ", " +
+                zone + ", "
+               + city + ", " + postcode;
     }
 }

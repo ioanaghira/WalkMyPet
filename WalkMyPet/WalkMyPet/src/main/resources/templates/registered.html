@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -44,34 +44,54 @@
             border: 1px solid; padding: 10px;
             background-color: lightblue;height:100px;
             text-color: white;
+            height:150px;
             }
         .div3 {text-align: left; margin: auto; width: 80%;
             border: 1px; padding: 10px; background-color: #E9F6F7;
-            height:80%
+            height:80%;
             }
         .div4 {
             color: darkblue;
             weight: bold;
-            font-size:20px;
+            font-size:30px;
             font-weight:bold;
+
             }
         .div5 {
             position:relative;
             background-color: #98C9CE;
             width:80%;
-            height:90%;
+            height:50%;
             left: 10%;
+            top:50px;
             font-weight: bold;
-            padding: 5px;
+            padding-top: 50px;
             text-align: center;
             }
         .div6 {
             position:relative;
-            height: 346px;
-            width: 430px;
-            background-image: url("./dogwalk.png");
-            left:25%;
+<!--            height: 346px;-->
+<!--            width: 430px;-->
+<!--            background-image: url("../static/img/dogwalk.png");-->
+<!--            left:25%;-->
+<!--            z-index: 1;-->
+
             }
+         #button1{
+            background-color: transparent;
+            border: outset;
+            color: darkblue;
+            width:140px;
+            height:60px;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+
+
 
 
     </style>
@@ -91,20 +111,25 @@
         </div>
         <div class="div4">
             <form th:object="${profile}">
-            <p>Hi <span th:text="*{firstName}">FName</span>, your WalkMyPet Account has been created!</p>
+                <p>Hi <span th:text="*{firstName}">FName</span>, your WalkMyPet Account has been created! &#127881;</p>
             </form>
         </div>
     </div>
 
     <div class="div3">
         <div class="div5">
-            <h3>In order to access your account, please log in!</h3>
+            <h3>To access your account, please log in!&#x1F436;</h3>
             <br/>
             <div class="div6">
+                <form action="#" th:action="@{/login}"
+                      method="get">
+                    <button id="button1" type="submit" value="Log In">Log In</button>
+                </form>
             </div>
         </div>
 
     </div>
+
 </div>
 </body>
 </html>

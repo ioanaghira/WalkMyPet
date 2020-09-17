@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import proiect_final.WalkMyPet.domain.Feedback;
+import proiect_final.WalkMyPet.domain.OrderStatus;
 import proiect_final.WalkMyPet.domain.Profile;
 import proiect_final.WalkMyPet.domain.WalkingOrder;
 import proiect_final.WalkMyPet.repository.FeedBackRepository;
@@ -19,6 +20,7 @@ import proiect_final.WalkMyPet.service.impl.WalkingOrderCreateService;
 import proiect_final.WalkMyPet.service.mail.EmailService;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -44,29 +46,49 @@ public class FeedBackController {
     @RequestMapping(value = "/profile/{profileId}/walkingOrder/{orderId}/feedbacks", method = RequestMethod.GET)
     public ModelAndView viewFeedBacks(@PathVariable("profileId") int profileId,
                                       @PathVariable("orderId") int orderId,
-                                      Feedback feedback){
-        ModelAndView modelAndView = new ModelAndView();
+                                      Feedback feedback) {
+        WalkingOrder walkO = walkingOrderCreateService.findById(orderId).get();
         Profile profile = profileAService.findById(profileId).get();
-        modelAndView.addObject("profile", profile);
-        modelAndView.addObject("feedbacks", feedBackService.getAllOrderFeedbacks(orderId));
-        modelAndView.addObject("reply", replyService.getAllReplies(feedback.getId()));
-
-        if(profile.getProfileType().toString() == "PROVIDER"){
-            modelAndView.setViewName("feedbacksProvider");
+        List<WalkingOrder> ownerOrders = walkingOrderCreateService.viewPetOwnerWalkingOrders(profileId);
+        List<WalkingOrder> providerOrders = walkingOrderCreateService.viewProviderWalkingOrders(profileId);
+        if (!walkO.getOrderStatus().equals(OrderStatus.FINISHED) &&
+                !walkO.getOrderStatus().equals(OrderStatus.CANCELLED)) {
+            ModelAndView modelAndView = new ModelAndView();
+            if (!ownerOrders.isEmpty() && profile.getId() == ownerOrders.get(0).getPetOwner().getId()) {
+                modelAndView.addObject("successMsg", "You cannot Add Reviews to Order " + walkO.getId() + " at this Status!");
+                modelAndView.addObject("walkingOrders",
+                        walkingOrderCreateService.viewPetOwnerWalkingOrders(profileId));
+                modelAndView.setViewName("walkingOrdersPetOwner");
+            } else if (!providerOrders.isEmpty() && profile.getId() == providerOrders.get(0).getProvider().getId()) {
+                modelAndView.addObject("walkingOrders",
+                        walkingOrderCreateService.viewProviderWalkingOrders(profileId));
+                modelAndView.addObject("successMsg", "You cannot View the Reviews on Order" + walkO.getId() + " at this Status!");
+                modelAndView.setViewName("walkingOrdersProvider");
+            }
+            return modelAndView;
         } else {
-            modelAndView.setViewName("feedbacksPetOwner");
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.addObject("profile", profile);
+            modelAndView.addObject("feedbacks", feedBackService.getAllOrderFeedbacks(orderId));
+            modelAndView.addObject("reply", replyService.getAllReplies(feedback.getId()));
+
+            if (profile.getProfileType().toString() == "PROVIDER") {
+                modelAndView.setViewName("feedbacksProvider");
+            } else {
+                modelAndView.setViewName("feedbacksPetOwner");
+            }
+            return modelAndView;
         }
-        return modelAndView;
     }
 
     @RequestMapping(value = "/profile/{profileId}/walkingOrder/{orderId}/addFeedBack", method = GET)
     public ModelAndView redirectToAddFeedBack(@PathVariable("profileId") int profileId,
-                                              @PathVariable("orderId") int orderId) {
+                                              @PathVariable("orderId") int orderId, Feedback feedback) {
+        WalkingOrder walkO = walkingOrderCreateService.findById(orderId).get();
+        Profile profile = profileAService.findById(profileId).get();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("feedback", new Feedback());
-        Optional<WalkingOrder> walkingOrders = walkingOrderCreateService.findById(orderId);
-        modelAndView.addObject("walkingOrders", walkingOrders);
-        Profile profile = profileAService.findById(profileId).get();
+        modelAndView.addObject("walkingOrders", walkO);
         modelAndView.addObject("profile", profile);
         modelAndView.setViewName("addFeedBack");
         return modelAndView;
@@ -76,22 +98,19 @@ public class FeedBackController {
     public ModelAndView saveFeedBack(@PathVariable("profileId") int profileId, @PathVariable("orderId") int orderId,
                                      @Valid Feedback feedback, BindingResult result) {
         ModelAndView modelAndView = new ModelAndView();
-
-        if(result.hasErrors()){
-            Optional<Profile> profiles = profileAService.findById(profileId);
-            modelAndView.addObject("profiles", profiles);
+        Profile profile = profileAService.findById(profileId).get();
+        if (result.hasErrors()) {
+//            Optional<Profile> profile = profileAService.findById(profileId);
+            modelAndView.addObject("profile", profile);
             modelAndView.setViewName("addFeedBack");
         } else {
             WalkingOrder walkingOrder = walkingOrderCreateService.findById(orderId).get();
-            Profile profile = profileAService.findById(profileId).get();
             feedback.setProfile(profile);
             feedback.setWalkingOrder(walkingOrder);
             feedBackService.saveFeedBack(feedback);
-
-            Profile profiles = profileAService.findById(profileId).get();
-            modelAndView.addObject("profiles", profiles);
+            modelAndView.addObject("profile", profile);
             modelAndView.addObject("feedbacks", feedBackService.getAllOrderFeedbacks(orderId));
-            if(profiles.getProfileType().toString() == "PROVIDER") {
+            if (profile.getProfileType().toString() == "PROVIDER") {
                 modelAndView.setViewName("feedbacksProvider");
             } else {
                 modelAndView.setViewName("feedbacksPetOwner");
@@ -99,13 +118,13 @@ public class FeedBackController {
 
 
             Feedback fb = feedBackRepository.findById(feedback.getId()).get();
-            String titleName = helper.setFbEmailReceiverName(walkingOrder,fb);
+            String titleName = helper.setFbEmailReceiverName(walkingOrder, fb);
             String fbName = fb.getProfile().getFirstName() + " " + fb.getProfile().getLastName();
             String content = fb.getContent();
-            String email = helper.getFbReceiverEmailAddress(walkingOrder,fb);
+            String email = helper.getFbReceiverEmailAddress(walkingOrder, fb);
             String dateTime = fb.getDateTime();
 
-            if(walkingOrder.getProvider() != null){
+            if (walkingOrder.getProvider() != null) {
                 emailService.sendMailOnFeedBack("Feedback Received", email, titleName, fbName, orderId, content, dateTime);
             }
         }
@@ -113,7 +132,7 @@ public class FeedBackController {
     }
 
     @RequestMapping(value = "/feedbacks", method = RequestMethod.GET)
-    public ModelAndView viewAllFeedBacks(){
+    public ModelAndView viewAllFeedBacks() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("feedbacks", feedBackService.getAllFeedbacks());
         modelAndView.setViewName("viewAllFeedbacks");

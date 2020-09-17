@@ -1,38 +1,134 @@
-
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <head>
+        <title> Orders List </title>
+        <style>
+        html, body{
+            height:100%;
+            }
+        body{
+            margin: 0;
+            }
+        table {
+            position:relative;
+            top:50px;
+            left:230px;
+            border-collapse: collapse;
+            table-layout:fixed;
+            text-align: center;
+            padding-top: 50px;
+            }
 
-</head>
-<body style="background-color: teal;">
-<h1>Hello!</h1>
-<p>Welcome to Your Page</p>
-<P>You are logged in as a PROVIDER</P>
-<div>
-    <table>
-        <td>
-            <form action="#" th:action="@{/profile/{profileId}/viewOpenOrders(profileId=${profile.id})}"
-                  method="get">
-                <input type="submit" value="View Open Orders"/>
-            </form>
-        </td>
-        <td>
-            <form action="#" th:action="@{/profile/{profileId}/yourWalkingOrders(profileId=${profile.id})}"
-                  method="get">
-                <input type="submit" value="View Your Orders"/>
-            </form>
-        </td>
-        <td>
-        <td>
-            <form action="#" th:action="@{/provider/edit/{id}(id=${profile.id})}" method="get">
-                <input type="submit" value="Edit your Profile"/>
-            </form>
-        </td>
-        <td>
-            <a href="/logout">Sign Out</a>
-        </td>
-    </table>
+        th, td {
+            text-align: center;
+            width:250px;
+            padding-left:20px;
+            border-bottom: 1px solid #ddd;
+            color: darkblue;
+            }
 
-</div>
+        .div1 {
+            width:100%;
+            background-color: #2EA1AE;
+        }
+        .div2 {text-align: center; margin: auto; width: 98%;
+            border: 1px solid; padding: 10px;
+            background-color: lightblue;height:200px;
+            text-color: white;
+            }
+        .div3 {text-align: left; height:500px; margin: auto; width: 98%;
+            border: 1px; padding: 10px; background-color: #E9F6F7;
+            }
+        .div4 {
+            color: darkblue;
+            weight: bold;
+            }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            }
+        .navbar {
+            overflow: hidden;
+            background-color: #459AB3;
+            width: 100%;
+            }
+        .navbar a {
+            float: right;
+            height: 50px;
+            }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ACE2F3;
+            }
+
+        .navbar input[type=submit]{
+            background-color: transparent;
+            border: none;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+        #submit1, #submit2, #submit3{
+            background-color: transparent;
+            position:relative;
+            border: outset;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+
+        </style>
+    </head>
+<body onload="enableRevBtn(); enableEditBtn(); enableCancelBtn()">
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/logout}"
+                      method="get">
+                    <input type="submit" value="Log Out"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h2> Hello <span th:text="*{firstName}" th:object="${profile}">FName</span>!&#128048;</h2>
+            <h3>Welcome to Your Page!</h3>
+            <h3>You are logged in as a PROVIDER</h3>
+        </div>
+    </div>
+    <div class="div3">
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <form action="#" th:action="@{/profile/{profileId}/viewOpenOrders(profileId=${profile.id})}"
+                              method="get">
+                            <input id="submit1" type="submit" value="View Open Orders"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="#" th:action="@{/profile/{profileId}/yourWalkingOrders(profileId=${profile.id})}"
+                              method="get">
+                            <input id="submit2" type="submit" value="View Your Orders"/>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="#" th:action="@{/provider/edit/{id}(id=${profile.id})}" method="get">
+                            <input id="submit3" type="submit" value="Edit your Profile"/>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
 </body>
 </html>

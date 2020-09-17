@@ -233,19 +233,6 @@
                     </div>
                 </div>
             </div>
-            <!--        <form action="#" th:action="@{/profile/{profileId}/walkingOrder/{orderId}/feedBack/{fbId}/reply-->
-            <!--        (orderId=${orderId}, profileId=${profileId}, fbId =${fbId})}" th:object="${reply}" method="post">-->
-            <!--            <div>-->
-            <!--                <textarea rows="8" cols="90" name="replyContent" th:field="*{replyContent}"-->
-            <!--                          placeholder="Enter comments here..."></textarea>-->
-            <!--                <br/>-->
-            <!--                <span th:if="${#fields.hasErrors('replyContent')}"-->
-            <!--                      th:errors="*{replyContent}">Reply Content Errors</span>-->
-            <!--            </div>-->
-
-            <!--            <input id="savebtn" type="submit" value="Add Reply"/>-->
-            <!--        </form>-->
-
             <div id="replyBox" class="div9">
                 <div class="div10">
                     <form action="#" th:action="@{/profile/{profileId}/walkingOrder/{orderId}/feedBack/{fbId}/reply
@@ -253,7 +240,7 @@
                           method="post">
                                     <textarea rows="6" cols="100" name="replyContent" th:field="*{replyContent}"
                                               placeholder="Enter reply here..."></textarea>
-                        <span th:if="${#fields.hasErrors('replyContent')}"
+                        <span style="color: red; font-weight: bold;" th:if="${#fields.hasErrors('replyContent')}"
                               th:errors="*{replyContent}">Reply Content Errors</span>
 
                         <div class="clearfix"></div>

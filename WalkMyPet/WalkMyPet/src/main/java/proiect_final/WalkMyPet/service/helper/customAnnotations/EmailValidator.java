@@ -8,7 +8,6 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 
-
 public class EmailValidator implements ConstraintValidator<EmailExists, Object> {
     private String email;
     private String message;
@@ -25,17 +24,14 @@ public class EmailValidator implements ConstraintValidator<EmailExists, Object> 
     @Override
     public boolean isValid(final Object value, final ConstraintValidatorContext context) {
         boolean valid = true;
-        try
-        {
+        try {
             final String newEmail = BeanUtils.getProperty(value, email);
             valid = profileARepository.findByEmail(newEmail) == null;
-        }
-        catch (final Exception ignore)
-        {
+        } catch (final Exception ignore) {
             // ignore
         }
 
-        if (!valid){
+        if (!valid) {
             context.buildConstraintViolationWithTemplate(message)
                     .addPropertyNode(email)
                     .addConstraintViolation()

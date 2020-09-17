@@ -16,9 +16,13 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface CompareTime {
 
     public String message() default "";
+
     public Class<?>[] groups() default {};
+
     public Class<? extends Payload>[] payload() default {};
+
     String start();
+
     String end();
 
     @Target({TYPE, ANNOTATION_TYPE})

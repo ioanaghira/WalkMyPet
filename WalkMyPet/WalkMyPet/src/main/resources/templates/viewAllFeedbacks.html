@@ -209,7 +209,7 @@ input[type=button], input[type=submit], input[type=reset] {
             <a href>
                 <form action="#" th:action="@{/}"
                       method="get">
-                    <input type="submit" value="Log In"/>
+                    <input type="submit" value="HomePage"/>
                 </form>
             </a>
         </div>
@@ -239,7 +239,7 @@ input[type=button], input[type=submit], input[type=reset] {
             <div>
                 <div class="div6">
                     <p><span th:text="${feedback.dateTime}"><b>Feedback DateTime</b></span></p>
-                    <p><span th:text="${feedback.profile.firstName + ' ' + feedback.profile.lastName}">
+                    <p>&#128049;<span th:text="${feedback.profile.firstName + ' ' + feedback.profile.lastName}">
                         <b>User Name</b></span>
                     </p>
                 </div>

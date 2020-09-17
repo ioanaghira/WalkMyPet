@@ -76,15 +76,20 @@
             margin: 4px 2px;
             cursor: pointer;
             }
-
-
+        p {
+            color:red;
+            font-size:20px;
+            font-weight:bold;
+            text-align:center;
+            width: 100%
+            }
 
 
 
     </style>
 </head>
 
-<body onload="enableRevBtn(); enableEditBtn(); enableCancelBtn()">
+<body>
 <div class="div1">
     <div class="div2">
         <div class="navbar">
@@ -114,6 +119,7 @@
     <div class="div3">
         <table>
             <tr>
+                <th>Order Number</th>
                 <th>Provider Name</th>
                 <th>Address</th>
                 <th>Order Date</th>
@@ -126,10 +132,12 @@
                 <th>Cancel</th>
                 <th>Add Review</th>
             </tr>
+
+            <p><span th:text="${successMsg}">Notification msg </span></p>
             <tr th:each="walkingOrder : ${walkingOrders}">
+                <td th:text="${walkingOrder.id}">ID</td>
                 <td th:text="${walkingOrder.provider != null} ? ${walkingOrder.provider.firstName} + ' ' + ${walkingOrder.provider.lastName} : ' '">
-                    Provider Name
-                </td>
+                    Provider Name</td>
                 <td th:text="${walkingOrder.petOwner.address}">Owner Address</td>
                 <td th:text="${walkingOrder.date}">Order Date</td>
                 <td th:text="${walkingOrder.orderStatus}">Order Status</td>
@@ -148,7 +156,7 @@
                     <form action="#"
                           th:action="@{/profile/{profileId}/cancelWalkingOrder/{id}(profileId=${profileId}, id = ${walkingOrder?.id})}"
                           method="post">
-                        <button type="submit" id="cancelBtn" value="Cancel">Cancel</button>
+                        <button type="submit" id="cancelBtn" value="Cancel" >Cancel</button>
                     </form>
                 </td>
                 <td>

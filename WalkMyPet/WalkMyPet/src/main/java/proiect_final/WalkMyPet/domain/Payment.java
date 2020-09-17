@@ -10,17 +10,17 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name="payment")
+@Table(name = "payment")
 public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name ="fee")
+    @Column(name = "fee")
     private double fee;
 
-    @Column(name="payment_amount")
+    @Column(name = "payment_amount")
     private double paymentAmount;
 
     @OneToOne(mappedBy = "payment", targetEntity = WalkingOrder.class)

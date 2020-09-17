@@ -38,18 +38,7 @@
             left: 10%;
             font-weight: bold;
             }
-        .div6 {
-            width: 100px;
-            position: relative;
-            left: 220px;
-            bottom: 5px;
-            }
-        .div7 {
-            width: 100px;
-            position: relative;
-            left: 200px;
-            bottom: 44px;
-            }
+
         textarea {
             border-color:blue; border:solid 1px;
             background-color: #C3F6F6;
@@ -82,6 +71,8 @@
             cursor: pointer;
             }
         #saveBtn{
+            position:relative;
+            left:240px;
             background-color: #E9F6F7;
             border: outset;
             width: 120px;
@@ -92,8 +83,8 @@
             }
        #cancelBtn{
             position:relative;
-            left: 200px;
-            bottom: 21px;
+            left: 400px;
+            bottom: 60px;
             background-color: #E9F6F7;
             border: outset;
             width: 120px;
@@ -102,6 +93,8 @@
             font-weight: bold;
             font-size: medium;
             }
+
+
 
     </style>
 </head>
@@ -178,17 +171,12 @@
                     </textarea><br></td>
                     </tr>
                 </table>
-                <div class="div6">
-                    <input id="saveBtn" type="submit" value="Save Order">
-                </div>
+                <input id="saveBtn" type="submit" value="Save Order">
             </form>
-            <div class="div7">
-                <form action="#" th:action="@{/profile/{profileId}/yourWalkingOrders(profileId=${profileId})}"
-                      method="get">
-                    <input id="cancelBtn" type="submit" value="Cancel">
-                </form>
-            </div>
-
+            <form action="#" th:action="@{/profile/{profileId}/yourWalkingOrders(profileId=${profileId})}"
+                  method="get">
+                <input id="cancelBtn" type="submit" value="Cancel">
+            </form>
         </div>
     </div>
 </div>

@@ -24,10 +24,10 @@ public class CustomLoginSuccessLoginConfig implements AuthenticationSuccessHandl
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
-        if (roles.contains("ROLE_PROVIDER")){
+        if (roles.contains("ROLE_PROVIDER")) {
             httpServletResponse.sendRedirect("/provider");
 
-        }else{
+        } else {
             httpServletResponse.sendRedirect("/pet_owner");
         }
     }

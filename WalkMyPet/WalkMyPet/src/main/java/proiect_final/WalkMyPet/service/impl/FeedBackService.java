@@ -16,18 +16,18 @@ public class FeedBackService {
     @Autowired
     private FeedBackRepository feedBackRepository;
     @Autowired
-    private  Helper helper;
+    private Helper helper;
 
     public List<Feedback> getAllOrderFeedbacks(int walkingOrderId) {
-            List<Feedback> feedbacks = new ArrayList<>();
-            feedBackRepository.findByWalkingOrderId(walkingOrderId).forEach(feedback -> feedbacks.add(feedback));
-            return feedbacks;
+        List<Feedback> feedbacks = new ArrayList<>();
+        feedBackRepository.findByWalkingOrderId(walkingOrderId).forEach(feedback -> feedbacks.add(feedback));
+        return feedbacks;
     }
 
-    public List<Feedback> getAllFeedbacks(){
+    public List<Feedback> getAllFeedbacks() {
         List<Feedback> feedbacks = new ArrayList<>();
-       feedBackRepository.findAll().forEach(feedback -> feedbacks.add(feedback));
-       return feedbacks;
+        feedBackRepository.findAll().forEach(feedback -> feedbacks.add(feedback));
+        return feedbacks;
     }
 
     public void saveFeedBack(Feedback feedback) {

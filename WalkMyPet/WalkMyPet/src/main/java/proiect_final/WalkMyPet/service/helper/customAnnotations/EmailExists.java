@@ -16,8 +16,11 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface EmailExists {
 
     public String message() default "";
+
     public Class<?>[] groups() default {};
+
     public Class<? extends Payload>[] payload() default {};
+
     String email();
 
     @Target({TYPE, ANNOTATION_TYPE})

@@ -14,10 +14,12 @@ import proiect_final.WalkMyPet.domain.WalkingOrder;
 import java.util.List;
 
 @Repository
-public interface WalkingOrderCreateRepository extends CrudRepository<WalkingOrder, Integer>{
+public interface WalkingOrderCreateRepository extends CrudRepository<WalkingOrder, Integer> {
 
     public List<WalkingOrder> findByPetOwnerId(int petOwnerId);
+
     public List<WalkingOrder> findByProviderId(int providerId);
+
     public List<WalkingOrder> findByOrderStatus(OrderStatus status);
 
     @Transactional
@@ -29,7 +31,7 @@ public interface WalkingOrderCreateRepository extends CrudRepository<WalkingOrde
     @Modifying
     @Query("update WalkingOrder w set w.orderStatus = :status, w.provider = :profile where w.id = :id")
     void confirmWalkingOrder(@Param(value = "id") int id, @Param(value = "status") OrderStatus status,
-                             @Param(value="profile") Profile profile);
+                             @Param(value = "profile") Profile profile);
 
     @Transactional
     @Modifying

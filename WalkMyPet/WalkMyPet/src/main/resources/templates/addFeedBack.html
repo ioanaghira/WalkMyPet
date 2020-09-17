@@ -83,6 +83,10 @@
             padding: 20px;
             }
 
+        #errorColor {
+            color: red;
+            font: italic;}
+
         textarea {
             border-color:blue; border:solid 1px;
             background-color: #C3F6F6;
@@ -249,7 +253,7 @@
                 <textarea rows="8" cols="90" name="content" th:field="*{content}"
                           placeholder="Enter comments here..."></textarea>
                     <br/>
-                    <span th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Content Errors</span>
+                    <span id="errorColor" th:if="${#fields.hasErrors('content')}" th:errors="*{content}">Content Errors</span>
                 </div>
 
                 <div id="status"></div>

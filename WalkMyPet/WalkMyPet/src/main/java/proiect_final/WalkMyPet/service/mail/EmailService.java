@@ -41,33 +41,33 @@ public class EmailService {
     }
 
     public void sendMailCreateOrder(String subject, String to, String name, int oId,
-                                     String oDate, String start, String end,
-                                     String oStatus, Double oCost){
+                                    String oDate, String start, String end,
+                                    String oStatus, Double oCost) {
 
         // Prepare the evaluation context
         final Context ctx = new Context();
         ctx.setVariable("name", name);
         ctx.setVariable("orderNr", oId);
         ctx.setVariable("orderDate", oDate);
-        ctx.setVariable("orderStart", start );
+        ctx.setVariable("orderStart", start);
         ctx.setVariable("orderEnd", end);
         ctx.setVariable("orderStatus", oStatus);
         ctx.setVariable("orderCost", oCost);
         ctx.setVariable("location", "Cluj-Napoca");
 
         try {
-        // Prepare message using a Spring helper
-        MimeMessage mimeMessage = this.emailSender.createMimeMessage();
-        MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "UTF-8");
-        message.setSubject(subject);
-        message.setFrom("walkmypet2020@gmail.com");
-        message.setTo(to);
+            // Prepare message using a Spring helper
+            MimeMessage mimeMessage = this.emailSender.createMimeMessage();
+            MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "UTF-8");
+            message.setSubject(subject);
+            message.setFrom("walkmypet2020@gmail.com");
+            message.setTo(to);
 
-        String htmlContent = this.templateEngine.process("createOrderEmail", ctx);
-        message.setText(htmlContent, true);
+            String htmlContent = this.templateEngine.process("createOrderEmail", ctx);
+            message.setText(htmlContent, true);
 
-        // Send email
-        this.emailSender.send(mimeMessage);
+            // Send email
+            this.emailSender.send(mimeMessage);
 
         } catch (MailException | MessagingException exception) {
             exception.getMessage();
@@ -75,7 +75,7 @@ public class EmailService {
         }
     }
 
-    public void sendMailCancelledOrder(String subject, String to, int oId){
+    public void sendMailCancelledOrder(String subject, String to, int oId) {
 
         // Prepare the evaluation context
         final Context ctx = new Context();
@@ -103,8 +103,7 @@ public class EmailService {
     }
 
 
-
-    public void sendMailConfirmOrder(String subject, String to, int oId){
+    public void sendMailConfirmOrder(String subject, String to, int oId) {
 
         final Context ctx = new Context();
         ctx.setVariable("orderNr", oId);
@@ -123,7 +122,7 @@ public class EmailService {
             // Send email
             this.emailSender.send(mimeMessage);
 
-        }  catch (MailException | MessagingException exception) {
+        } catch (MailException | MessagingException exception) {
             exception.getMessage();
             exception.printStackTrace();
         }
@@ -132,13 +131,13 @@ public class EmailService {
 
     public void sendMailCompleteOrder(String subject, String to, String name, int oId,
                                       String oDate, String start, String end,
-                                      String oStatus, Double oCost){
+                                      String oStatus, Double oCost) {
 
         final Context ctx = new Context();
         ctx.setVariable("name", name);
         ctx.setVariable("orderNr", oId);
         ctx.setVariable("orderDate", oDate);
-        ctx.setVariable("orderStart", start );
+        ctx.setVariable("orderStart", start);
         ctx.setVariable("orderEnd", end);
         ctx.setVariable("orderStatus", oStatus);
         ctx.setVariable("orderCost", oCost);
@@ -157,7 +156,7 @@ public class EmailService {
             // Send email
             this.emailSender.send(mimeMessage);
 
-        }  catch (MailException | MessagingException exception) {
+        } catch (MailException | MessagingException exception) {
             exception.getMessage();
             exception.printStackTrace();
         }
@@ -165,12 +164,8 @@ public class EmailService {
     }
 
 
-
-
-
-
     public void sendMailOnFeedBack(String subject, String to, String titleName, String fbName, int woId,
-                                   String content, String dateTime){
+                                   String content, String dateTime) {
 
         // Prepare the evaluation context
         final Context ctx = new Context();
@@ -178,24 +173,24 @@ public class EmailService {
         ctx.setVariable("fbName", fbName);
         ctx.setVariable("woId", woId);
         ctx.setVariable("to", to);
-        ctx.setVariable("subject", subject );
+        ctx.setVariable("subject", subject);
         ctx.setVariable("content", content);
         ctx.setVariable("dateTime", dateTime);
         ctx.setVariable("location", "Cluj-Napoca");
 
         try {
-        // Prepare message using a Spring helper
-        MimeMessage mimeMessage = this.emailSender.createMimeMessage();
-        MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "UTF-8");
-        message.setSubject(subject);
-        message.setFrom("walkmypet2020@gmail.com");
-        message.setTo(to);
+            // Prepare message using a Spring helper
+            MimeMessage mimeMessage = this.emailSender.createMimeMessage();
+            MimeMessageHelper message = new MimeMessageHelper(mimeMessage, "UTF-8");
+            message.setSubject(subject);
+            message.setFrom("walkmypet2020@gmail.com");
+            message.setTo(to);
 
-        String htmlContent = this.templateEngine.process("createFeedbackEmail", ctx);
-        message.setText(htmlContent, true);
+            String htmlContent = this.templateEngine.process("createFeedbackEmail", ctx);
+            message.setText(htmlContent, true);
 
-        // Send email
-        this.emailSender.send(mimeMessage);
+            // Send email
+            this.emailSender.send(mimeMessage);
 
         } catch (MailException | MessagingException exception) {
             exception.printStackTrace();
@@ -204,7 +199,7 @@ public class EmailService {
     }
 
     public void sendMailOnReply(String subject, String to, String titleName, String fbName, String rpName, int woId,
-                                   String content, String rpContent, String rpDateTime, String dateTime){
+                                String content, String rpContent, String rpDateTime, String dateTime) {
 
         // Prepare the evaluation context
         final Context ctx = new Context();
@@ -213,7 +208,7 @@ public class EmailService {
         ctx.setVariable("rpName", rpName);
         ctx.setVariable("woId", woId);
         ctx.setVariable("to", to);
-        ctx.setVariable("subject", subject );
+        ctx.setVariable("subject", subject);
         ctx.setVariable("content", content);
         ctx.setVariable("rpContent", rpContent);
         ctx.setVariable("rpDateTime", rpDateTime);
@@ -239,13 +234,13 @@ public class EmailService {
         }
     }
 
-    public void sendMailOnRegister(String subject, String to, String name){
+    public void sendMailOnRegister(String subject, String to, String name) {
 
         // Prepare the evaluation context
         final Context ctx = new Context();
         ctx.setVariable("name", name);
         ctx.setVariable("to", to);
-        ctx.setVariable("subject", subject );
+        ctx.setVariable("subject", subject);
         ctx.setVariable("location", "Cluj-Napoca");
 
         try {

@@ -1,36 +1,99 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html"
       layout:decorate="~{fragments/layout}">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        html, body{
+            height:100%;
+            }
+        body{
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            }
 
+        .div1 {
+            width:100%;
+            background-color: #2EA1AE;
+            height:100%;
+        }
+        .div2 {text-align: center; margin: auto; width: 80%;
+            padding: 10px;
+            background-color: lightblue;
+            }
+        .div3 {text-align: left; margin: auto; width: 80%;
+            padding: 10px; background-color: #E9F6F7;
+            height:50%;
+            }
+        .div4 {text-align: center; margin: auto; width: 100%;
+            padding: 10px; background-color: transparent;
+            height:100%;
+            }
+
+        .div6 {
+            text-align: left;
+            text-padding:
+            position:relative;
+            padding: 5px;
+            background-color: #537895;
+            height:100px;
+            color:white;
+            font-size: 40px;
+            }
+         .div5 {
+            text-align: right;
+            text-padding:10px;
+            position:relative;
+            padding: 5px;
+
+
+            font-size: 20px;
+            }
+
+        #button1, #button2, #button3{
+            background-color: transparent;
+            border: solid;
+            color: darkblue;
+            width:140px;
+            height:60px;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+
+    </style>
 </head>
-<body style="background-color: powderblue;">
+<body>
+<div class="div1">
+    <div class="div2">
+        <div class="div6">
+            <h1> WalkMyPet &#128062;</h1>
+            <h1> &#128099;</h1>
+        </div>
+        <div class="div5">
+            <h2 style="color: black;">Happy pet, happy family...</h2>
+            <h2 style="color:black;">Join our great community!</h2>
+        </div>
+    </div>
+    <div class="div3">
+        <div class="div4">
+            <p><a href="/login">
+                <button id="button1" value="Login">Login</button>
+            </a></p>
+            <p><a href="/register">
+                <button id="button2" value="Sign up">Sign up</button>
+            </a></p>
 
-
-<h1 style="color: darkblue; font-size: 350%;">Walk My Pet </h1>
-
-<p style="color: black;">Happy pet, happy family...</p>
-<p style="color:black;">Join our great community!</p>
-<br>
-
-
-<p><a href="/login">
-    <input type="button" value="Login"/>
-</a>
-<p><a href="/register">
-    <input type="button" value="Sign up"/>
-</a>
-
-<p><a href>
-    <form action="#" th:action="@{/feedbacks}" method="get">
-        <input type="submit" value="User Reviews"/>
-    </form>
-</a>
-
-
-
-
+            <form action="#" th:action="@{/feedbacks}" method="get">
+                <button id="button3" type="submit">User Reviews</button>
+            </form>
+        </div>
+    </div>
+</div>
 </body>

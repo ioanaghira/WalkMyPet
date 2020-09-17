@@ -50,7 +50,7 @@ public class ProfileAController {
     public ModelAndView addProfile(@Valid @ModelAttribute(value = "profile") Profile profile,
                                    BindingResult result) {
         ModelAndView modelAndView = new ModelAndView();
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             modelAndView.setViewName("register");
         } else {
             profileAService.addProfile(profile);
@@ -60,7 +60,7 @@ public class ProfileAController {
             String name = profile.getFirstName();
             String email = profile.getEmail();
 
-            emailService.sendMailOnRegister("Registration Successful",email,name);
+            emailService.sendMailOnRegister("Registration Successful", email, name);
         }
         return modelAndView;
 

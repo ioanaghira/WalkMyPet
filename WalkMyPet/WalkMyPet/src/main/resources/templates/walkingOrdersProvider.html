@@ -76,6 +76,13 @@
             margin: 4px 2px;
             cursor: pointer;
             }
+        p {
+            color:red;
+            font-size:20px;
+            font-weight:bold;
+            text-align:center;
+            width: 100%
+            }
 
     </style>
 </head>
@@ -104,6 +111,7 @@
     <div class="div3">
         <table>
             <tr>
+                <th>Order Number</th>
                 <th>Owner Name</th>
                 <th>Address</th>
                 <th>Order Date</th>
@@ -116,7 +124,9 @@
                 <th>Complete the order</th>
                 <th>View Reviews</th>
             </tr>
+            <p><span th:text="${successMsg}">Notification msg </span></p>
             <tr th:each="walkingOrder : ${walkingOrders}">
+                <td th:text="${walkingOrder.id}">ID</td>
                 <td th:text="${walkingOrder.petOwner.firstName} + ' ' + ${walkingOrder.petOwner.lastName}">Owner Name</td>
                 <td th:text="${walkingOrder.petOwner.address}">Owner Address</td>
                 <td th:text="${walkingOrder.date}">Order Date</td>

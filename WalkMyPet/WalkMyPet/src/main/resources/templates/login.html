@@ -5,65 +5,189 @@
       layout:decorate="~{fragments/layout}">
 <head>
     <title>Login</title>
+    <style>
+        html, body{
+            height:100%;
+            }
+        body{
+            margin: 0;
+            }
+        table {
+            border-collapse: collapse;
+            table-layout:fixed;
+            width:200px;
+            }
+        table tr td:nth-child(1){
+            text-align:right;
+            text-size: medium;
+            }
+
+        th, td {
+            width:250px;
+            padding:12px;
+            border-bottom: 1px solid #ddd;
+            color: darkblue;
+            }
+
+        .div1 {
+            width:100%;
+            background-color: #2EA1AE;
+        }
+        .div2 {text-align: center; margin: auto; width: 80%;
+            border: 1px solid; padding: 10px;
+            background-color: lightblue;height:120px;
+            text-color: white;
+            }
+        .div3 {text-align: left; height:500px; margin: auto; width: 80%;
+            border: 1px; padding: 10px; background-color: #E9F6F7;
+            }
+        .div4 {
+            color: darkblue;
+            weight: bold;
+            }
+        .div5 {
+            position:relative;
+            background-color: #98C9CE;
+            width:60%;
+            left: 20%;
+            font-weight: bold;
+            text-align: center;
+            top: 50px;
+            }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            }
+        .navbar {
+            overflow: hidden;
+            background-color: #459AB3;
+            width: 100%;
+            }
+        .navbar a {
+            float: right;
+            height: 50px;
+            }
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ACE2F3;
+            }
+
+        input[type=button], input[type=submit], input[type=reset] {
+            background-color: transparent;
+            border: none;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+            #login-submit{
+            background-color: transparent;
+            position:relative;
+            left:370px;
+            border: outset;
+            color: darkblue;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: medium;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+        .alert {
+        width:70%;
+            color:red;
+            font-style:italic;
+            text-align:center;}
+
+
+
+    </style>
 </head>
-<body style="background-color: powderblue;">
-<div layout:fragment="content" th:remove="tag">
-
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h1>Login page</h1>
-            <form th:action="@{/login}" method="post">
-                <div th:if="${param.error}">
-                    <div class="alert alert-danger">
-                        Your password or username is invalid.
-                    </div>
-                </div>
-                <div th:if="${param.logout}">
-                    <div class="alert alert-info">
-                        You have been logged out.
-
-                        <p><a href="/">Return to homepage</a></p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email">Username</label>:
-                    <input type="text"
-                           id="email"
-                           name="username"
-                           class="form-control"
-                           autofocus="autofocus"
-                           placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>:
-                    <input type="password"
-                           id="password"
-                           name="password"
-                           class="form-control"
-                           placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3">
-                            <input type="submit"
-                                   name="login-submit"
-                                   id="login-submit"
-                                   class="form-control btn btn-info"
-                                   value="Log In">
-                        </div>
-                    </div>
-                </div>
-            </form>
+<body>
+<div class="div1">
+    <div class="div2">
+        <div class="navbar">
+            <a href>
+                <form action="#" th:action="@{/}"
+                      method="get">
+                    <input type="submit" value="HomePage"/>
+                </form>
+            </a>
+        </div>
+        <div class="div4">
+            <h1> Login page &#x1F436;</h1>
         </div>
     </div>
+    <div class="div3">
+        <div layout:fragment="content" th:remove="tag">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+
+                    <form th:action="@{/login}" method="post">
+                        <div th:if="${param.error}">
+                            <div class="alert">
+                                Your password or username is invalid.
+                            </div>
+                        </div>
+                        <div th:if="${param.logout}">
+                            <div class="alert">
+                                You have been logged out.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="email">Username</label>:
+                                    </td>
+                                    <td><input type="text"
+                                               id="email"
+                                               name="username"
+                                               class="form-control"
+                                               autofocus="autofocus"
+                                               placeholder="Username"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="form-group">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="password">Password</label>:
+                                    </td>
+                                    <td><input type="password"
+                                               id="password"
+                                               name="password"
+                                               class="form-control"
+                                               placeholder="Password"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <table>
+                                        <tr>
+                                            <input type="submit"
+                                                   name="login-submit"
+                                                   id="login-submit"
+                                                   class="form-control btn btn-info"
+                                                   value="Log In">
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
 
-
-
-
-
-
-</div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

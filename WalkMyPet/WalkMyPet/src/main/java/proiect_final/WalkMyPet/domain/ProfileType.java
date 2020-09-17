@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 
-@Table(name="profile_type")
+@Table(name = "profile_type")
 public enum ProfileType {
     PROVIDER, PET_OWNER
 }
